@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>晶晶给你记笔记</title>
+  
+  <subtitle>一个净化心灵的地方</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://jingjingzhai.github.io/"/>
+  <updated>2019-03-13T07:42:38.952Z</updated>
+  <id>https://jingjingzhai.github.io/</id>
+  
+  <author>
+    <name>翟晶晶</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Network propagation: a universal amplifier of genetic associations</title>
+    <link href="https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/"/>
+    <id>https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/</id>
+    <published>2019-03-13T07:04:02.000Z</published>
+    <updated>2019-03-13T07:42:38.952Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p><a href="https://www.nature.com/articles/nrg.2017.38" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><p>生物网络是发现疾病基因和遗传模块的有力资源。网络分析的基础是相同表型下的基因倾向于相互作用;该原理可用于组合和扩增来自个体基因的信号。最近，基于随机游走，信息扩散和电阻，已经提出了许多用于使用网络进行遗传分析的生物信息学技术。这些方法已成功应用于鉴定疾病基因，遗传模块和药物靶标。事实上，所有这些方法都是统一数学机制的变体 - 网络传播 - 这表明它是一种在基因研究中具有广泛实用性的强大数据转换方法。</p><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>基因组技术催生(spawn; to cause something new, or many new things, to grow or start suddenly)了许多研究工作，以破译疾病的分子基础，产生越来越多的“组学”数据；</li><li>例如，图论理论家研究图上的随机游走;数据科学社区应用了Google PageRank搜索算法的各种变量;统计物理学家研究热扩散过程;电气工程师计算电路中的最小能量状态;机器学习社区考虑不同形式的图形内核</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.nature.com/articles/nrg.2017.38&quot; target
+      
+    
+    </summary>
+    
+      <category term="Nature reviews genetics" scheme="https://jingjingzhai.github.io/categories/Nature-reviews-genetics/"/>
+    
+    
+      <category term="Network" scheme="https://jingjingzhai.github.io/tags/Network/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Functional protein representations from biological networks enable diverse cross-species inference (未完待续...)</title>
+    <link href="https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/"/>
+    <id>https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/</id>
+    <published>2019-03-12T01:05:23.000Z</published>
+    <updated>2019-03-12T06:14:15.013Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p><a href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkz132/5371270" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>在物种间传递知识是许多生物学应用的关键，但由于发散和趋同的演化而变得复杂。针对该问题的许多当前方法利用序列和交互网络数据来跨物种传递知识，例如网络比对方法，虽然这些技术做得很好，但它们的范围有限，创建了解决一个特定问题或任务的指标；</li><li>作者采用不同的方法，使用相同的蛋白质表示可以执行多个知识转移任务。具体来说，我们基于内核的方法（MUNK）集成了序列和网络结构，以创建功能蛋白表示，在同一载体空间中嵌入来自不同物种的蛋白质。首先，我们显示在MUNK-空间中接近的不同物种中的蛋白质在功能上是相似的。接下来，我们使用这些代表来分享物种之间合成致死相互作用的知识。重要的是，我们发现使用MUNK表示的结果至少与这些任务的现有算法一样准确。最后，我们概括了一个表型（’直系同源表型’）的概念，以使用功能相似的蛋白质（即那些具有相似表征的蛋白质）。我们通过使用它来识别已知的表型和当前研究支持的新的非现象，证明了这种扩展概念的实用性。</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>模式生物研究的主要挑战是遗传学知识的迁移。 例如：模型生物与人类之间的基因型与表型的映射。研究模式生物的主要前景源于研究人员以人类不可行的方式测量生物的能力。因此，在物种之间转移知识至关重要 。理想情况是：可以迁移模式生物中的发现以改善人类遗传学知识（例如通过同源性）。其次，可以迁移人类遗传学知识，在模式生物中设计更好的实验（例如用于疾病模型）；</li><li>跨物种的知识迁移有着广泛的应用，包括：大范围的GO功能注释、两两基因功能比较以及通过直系表型预测人类疾病；</li><li>跨物种迁移的困难性，因为许多模式生物在数百万年前与人类不同，并且具有根本不同的遗传结构。</li></ul><h3 id="3-材料与方法"><a href="#3-材料与方法" class="headerlink" title="3. 材料与方法"></a>3. 材料与方法</h3><ul><li>利用核函数中的属性计算网络中节点的相似性，然后生成嵌入（embeddings）。虽然使用内核来研究单个网络是众所周知的，但构建基于网络的内核来捕获不同网络之间节点的相似性仍然是一个开放的问题。这也正是这篇文章所要解决的问题。</li><li>MUNK首先执行源物种节点（蛋白质）的内核嵌入。</li></ul><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://academic.oup.com/nar/advance-article/doi/10
+      
+    
+    </summary>
+    
+      <category term="NAR" scheme="https://jingjingzhai.github.io/categories/NAR/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>A transcription factor hierarchy defines an environmental stress response network</title>
+    <link href="https://jingjingzhai.github.io/2019/03/09/A-transcription-factor-hierarchy-defines-an-environmental-stress-response-network/"/>
+    <id>https://jingjingzhai.github.io/2019/03/09/A-transcription-factor-hierarchy-defines-an-environmental-stress-response-network/</id>
+    <published>2019-03-09T02:30:53.000Z</published>
+    <updated>2019-03-09T07:07:18.825Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>转录因子（TF）通常一个接一个地研究或者在一些相关因子的集群中研究。然而，转录变化对环境压力响应的整合和网络通常涉及许多相关的TF。在许多生物体中，例如植物，重叠的功能可能使得难以理解如何通过由这些TF控制的复杂信号传导网络实现生物学相关的最终结果。为了更好地了解参考植物拟南芥如何处理通过激素脱落酸（ABA）限制水所引起的压力，作者研究了体内所有与ABA相关的21个TF结合的DNA序列。</p><p><a href="http://science.sciencemag.org/content/354/6312/aag1550.long" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><p>微生物，植物和动物普遍受到环境压力。然而，多细胞生物体中应激反应转录因子（TF）网络的系统研究受到了很大的限制。植物激素脱落酸（ABA）影响数千个基因的表达，使我们能够描述其复杂的应激反应调节网络。作者使用ChIP-Seq测序技术，研究了21个ABA相关TF的全基因组binding，以构建拟南芥的综合调控网络。定义了动态TF结合的决定因素和TF之间的等级，阐明了差异基因表达模式与ABA途径反馈调节之间的关系。通过推断观察到的规范ABA途径组分的调节特征，我们鉴定了一个新的转录调节因子家族调节ABA和盐的反应性，并证明了它们调节植物对渗透胁迫的适应性的效用。</p><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>转录是基因表达的关键步骤。已经进行了协同努力来绘制人，苍蝇和蠕虫中的功能元件，包括通过使用染色质免疫沉淀测序（ChIP-seq）分析转录因子（TF）结合所鉴定的大量顺式调节元件。一个尚未开发的领域是刺激如何调节TF结合和随后的转录组变化。此外，与动物研究相比，很少有全面的体内TF结合数据集可用于植物界。为了开始解决这一知识差距，我们生成了100多个ChIP-seq和时间序列RNA测序（RNA-seq）数据集，以表征受刺激影响的转录网络，并绘制参考植物拟南芥中的功能性顺式调控元件。 ，重点是植物激素脱落酸（ABA）。对ABA的反应为检测受刺激影响的转录调节提供了通用模型。 ABA触发数千个基因和TF的差异表达（DE），提供强大的响应，使复杂的基因调控网络建模。此外，ABA在各种植物过程中的作用对基础生物学和农业都很重要；</li><li>脱落酸在优化植物的水分利用中起着关键作用，并且是种子发育和对多种环境胁迫（例如干旱和高盐度）的响应所必需的。在拟南芥中，ABA被PYR / PYL / RCAR受体蛋白识别。 ABA的结合触发PYR / PYL / RCAR与A组PP2C蛋白磷酸酶的相互作用并使SnRK2蛋白激酶去阻遏。 SnRK2随后激活诸如TF的底物并引发ABA反应。尽管已知许多TF对ABA反应有贡献，但对它们的靶基因以及这些靶标组合调节的方式知之甚少。体外方法，包括最近描述的拟南芥cistrome数据集，已经能够鉴定DNA基序和相关TF的推断。然而，由于许多大型多成员TF家族，准确的预测仍然具有挑战性。此外，难以在TF结合和转录组变化之间建立直接联系或通过体外测定解决TF调节的动态。因此，我们应用ChIP-seq明确发现TF靶标，检查受刺激影响的TF结合动力学，并将这些发现与随后的转录组变化联系起来。</li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-ABA响应的ChIP-seq分析-ChIP-seq-analyses-of-ABA-responses"><a href="#3-1-ABA响应的ChIP-seq分析-ChIP-seq-analyses-of-ABA-responses" class="headerlink" title="3.1 ABA响应的ChIP-seq分析 (ChIP-seq analyses of ABA responses)"></a>3.1 ABA响应的ChIP-seq分析 (ChIP-seq analyses of ABA responses)</h4><ul><li>首先作者<br><img src="/images/20190309-Fig1.png" alt="Figure 1ABC"></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;转录因子（TF）通常一个接一个地研究或者在一些相关因子的集群中研究。然而，转录变化对环境压力响应的整合和网络通常涉及许多
+      
+    
+    </summary>
+    
+      <category term="Science" scheme="https://jingjingzhai.github.io/categories/Science/"/>
+    
+    
+      <category term="Arabidopsis TF" scheme="https://jingjingzhai.github.io/tags/Arabidopsis-TF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cistrome and epicistrome features shape the regulatory DNA landscape (未完待续...)</title>
+    <link href="https://jingjingzhai.github.io/2019/03/08/Cistrome-and-epicistrome-features-shape-the-regulatory-DNA-landscape/"/>
+    <id>https://jingjingzhai.github.io/2019/03/08/Cistrome-and-epicistrome-features-shape-the-regulatory-DNA-landscape/</id>
+    <published>2019-03-08T07:09:44.000Z</published>
+    <updated>2019-03-09T02:29:44.160Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>作者介绍了一种新的用于研究转录因子结合位点的测序方法（DAP-Seq)。 与ChIP-Seq不同的是，这是体外进行亲和力检验的方法。</p><a id="more"></a><p><a href="https://www.sciencedirect.com/science/article/pii/S0092867416304810?via%3Dihub" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>作者描述了DNA亲和纯化测序（DAP-seq），一种高通量TF结合位点发现方法，用体外表达的TF探询基因组DNA。使用DAP-seq，作者通过解析529个TF的基序和峰来定义拟南芥cistrome；</li><li>由于DAP-seq中使用的基因组DNA保留了5-甲基胞嘧啶，我们发现&gt; 75％（248/327）拟南芥TF对甲基化敏感，这一特性强烈影响了episistrome landscape。</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>ChIP-seq实验通常在规模上受到限制，因为它们难以执行，取决于抗体质量，并且对稀有或低表达蛋白质具有挑战性；</li><li>与ChIP-seq相比，TFBS的体外作图提供了一种可扩展的替代方案，可快速，低成本地查询大量TF；</li><li>作者开发了DNA亲和纯化测序（DAP-seq），这是一种高通量测定，使用体外表达的TF来查询naked gDNA (genomic DNA)片段以建立结合位置（峰）和序列基序。</li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-DAP-Seq"><a href="#3-1-DAP-Seq" class="headerlink" title="3.1 DAP-Seq"></a>3.1 DAP-Seq</h4><ul><li><p>DAP-Seq是体外TF-DNA结合实验，价格低。DAP-Seq使用gDNA建库<br><img src="/images/20190308-Fig1.png" alt="Figure_1ABC"></p></li><li><p><strong>Figure 1A-1C</strong>: 这部分主要介绍DAP-Seq的原理，大概意思就是用基因组DNA（gDNA; 这个gDNA是转录因子体内结合的天然原料，因此可以用来研究DNA上的修饰对转录因子结合的影响）建库，体外表达转录因子，根据亲和力实验，抓取被转录因子结合的位点，然后测序。</p></li><li><p>同时也可以研究<strong>甲基化</strong>对于转录因子结合的影响，这篇文章的做法如下：gDNA中包含甲基化，通过PCR扩增重新做<strong>体外亲和力</strong>检验，探究哪些结合位点是由于甲基化的存在而变得不能结合了。</p></li></ul><h4 id="3-2-拟南芥顺式组-The-Arabidopsis-Cistrome"><a href="#3-2-拟南芥顺式组-The-Arabidopsis-Cistrome" class="headerlink" title="3.2 拟南芥顺式组 (The Arabidopsis Cistrome)"></a>3.2 拟南芥顺式组 (The Arabidopsis Cistrome)</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;作者介绍了一种新的用于研究转录因子结合位点的测序方法（DAP-Seq)。 与ChIP-Seq不同的是，这是体外进行亲和力检验的方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Cell" scheme="https://jingjingzhai.github.io/categories/Cell/"/>
+    
+    
+      <category term="Arabidopsis TF" scheme="https://jingjingzhai.github.io/tags/Arabidopsis-TF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dysregulation of expression correlates with rare-allele burden and fitness  loss in maize (未完待续...)</title>
+    <link href="https://jingjingzhai.github.io/2019/03/07/Dysregulation-of-expression-correlates-with-rare-allele-burden-and-fitness-loss-in-maize/"/>
+    <id>https://jingjingzhai.github.io/2019/03/07/Dysregulation-of-expression-correlates-with-rare-allele-burden-and-fitness-loss-in-maize/</id>
+    <published>2019-03-07T09:36:41.000Z</published>
+    <updated>2019-03-09T02:30:22.635Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>由于水平有限，我觉得这篇文章读起来真是太难了！太难了！！太难了！！！<br><a id="more"></a><br><a href="https://www.nature.com/articles/nature25966" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>多组织基因表达资源，共7各组织，平均每个组织255自交系；</li><li>eQTL分析，分析了罕见变异对于极端基因表达的贡献，玉米基因组中一些新的突变可能是有害的。尽管选择的作用是使有害变体保持罕见，但它们的完全去除受到与有利基因座的遗传连锁和有限种群大小的阻碍；</li><li>然而，这些罕见等位基因对现代近交玉米的持续影响尚不清楚。通过分析该基因表达资源，利用玉米的极端多样性和快速连锁不平衡衰变，作者描述了稀有等位基因和进化历史对表达调控的影响。稀有等位基因与表达失调有关，我们将这种失调与种子重量适应性联系起来。我们发现在现代近交系中定位的表达数量性状基因座中的祖先稀有变异体的富集，这表明历史瓶颈已形成调节。我们的研究结果表明，农业物种进一步遗传改良的一条途径在于清除与作物健康有关的罕见有害变种。</li></ul><h3 id="2-结果"><a href="#2-结果" class="headerlink" title="2. 结果"></a>2. 结果</h3><h4 id="2-1-基因的极端表达与局部罕见变异的丰度有关-The-abundance-of-local-rare-alleles-correlates-with-extremes-in-expression"><a href="#2-1-基因的极端表达与局部罕见变异的丰度有关-The-abundance-of-local-rare-alleles-correlates-with-extremes-in-expression" class="headerlink" title="2.1 基因的极端表达与局部罕见变异的丰度有关 (The abundance of local rare alleles correlates with extremes in expression)"></a>2.1 基因的极端表达与局部罕见变异的丰度有关 (The abundance of local rare alleles correlates with extremes in expression)</h4><ul><li>这部分作者主要通过将个体按照表达值排序，然后统计个体expression rank与罕见变异的树木之间的差异，得出结论：基因的极端表达与局部罕见变异的丰度有关。其中<strong>局部</strong>一词可以从<strong>Figure 1D</strong>看出。<br><img src="/images/20190306-Fig1.png" alt="Figure 1"></li><li><strong>Figure 1A:</strong> 作者首先将个体分为低表达、中表达和高表达的个体，期待的结果是，高表达和低表达的个体都富集罕见变异；</li><li><strong>Figure 1B-1C:</strong> 为了验证这个假设，作者使用<strong>Expression rank</strong>与<strong>local rare variant count</strong>的关系来描述,共7个组织的表达数据，每个组织分开分析，<strong>Figure 1B</strong>和<strong>Figure 1C</strong>只展示了在root组织中的情况，其中<strong>Figure 1B</strong>使用前5000个高表达的基因，对每个基因计算其上游5k的罕见变异的数目，然后取平均值，构成了图中的纵坐标，横坐标代表的是每个个体的<strong>Expression rank</strong>。<strong>Figure 1C</strong>与<strong>Figure 1B</strong>类似，展示的则是基因表达处于5001-10000位置时<strong>Expression rank</strong>与<strong>local rare variant count</strong>的关系。作者在这里使用了二次回归来刻画曲线，与原假设相符合，<strong>Expression rank</strong>位于两端的个体拥有较多的罕见变异；</li><li><strong>Figure 1E:</strong> 虽然二次回归的结果很显著，但是可以看出尾部有很多个异常值，因此接下来的分析作者集中关注<strong>Figure 1B</strong>中五个最低表达和五个最高表达的个体。在分析的组织中，表达最低的五个个体富集罕见变异的数目是中间两个四分位点个体的1.68-1.86倍。紫红色代表表达极低的五个个体的罕见变异数目；黄色代表位于上四分位点和下四分位点之间的137个样本的平均罕见变异数目；蓝色代表表达最高的五个个体的平均罕见变异数目。<strong>可以看出样本表达极低的个体更富集罕见变异；</strong></li><li><p><strong>Figure 1D:</strong> 同时对所有个体的上游序列进行分析，可以发现罕见变异倾向于离启动子更近的区域。</p></li><li><p>虽然过表达与欠表达都可能是异常表达的有害结果，但是欠表达的个体富集罕见变异的数目要比过表达显著性水平更高。可能是因为罕见变异罕见变异更可能破坏启动子而不是抑制子。</p></li></ul><h4 id="2-2-在现代种质中，祖先稀有等位基因显著富集了高度解释性的顺式eQTL-Ancestral-rare-alleles-are-significantly-enriched-for-highly-explanatory-cis-eQTL-in-modern-germplasm"><a href="#2-2-在现代种质中，祖先稀有等位基因显著富集了高度解释性的顺式eQTL-Ancestral-rare-alleles-are-significantly-enriched-for-highly-explanatory-cis-eQTL-in-modern-germplasm" class="headerlink" title="2.2 在现代种质中，祖先稀有等位基因显著富集了高度解释性的顺式eQTL (Ancestral rare alleles are significantly enriched for highly explanatory cis eQTL in modern germplasm)"></a>2.2 在现代种质中，祖先稀有等位基因显著富集了高度解释性的顺式eQTL (Ancestral rare alleles are significantly enriched for highly explanatory cis eQTL in modern germplasm)</h4><ul><li>玉米HapMap3中约有50万个SNP（约占总SNP的1％）在335个热带玉米品系系中罕见的（MAF≤0.05)。</li><li><strong>Figure 2A:</strong> 热带群体的MAF与RNA-Seq中的MAF，用R^2表示eQTL解释的方差；</li><li><strong>Figure 2B-2C:</strong> 按照文章中的原话，这两个图的出来的结论是：热带群体中的罕见变异比常见变异能够解释更多的方差，可能是从横坐标R^2的大小看出来的；</li><li><strong>Figure 2D:</strong> 热带MAF bin与平均R^2的关系。</li></ul><p><img src="/images/20190307-Fig6.png" alt="Figure 2"></p><h4 id="2-3-表达的异常可以预测适应性-Dysregulation-of-expression-can-predict-fitness"><a href="#2-3-表达的异常可以预测适应性-Dysregulation-of-expression-can-predict-fitness" class="headerlink" title="2.3 表达的异常可以预测适应性 (Dysregulation of expression can predict fitness)"></a>2.3 表达的异常可以预测适应性 (Dysregulation of expression can predict fitness)</h4><p><img src="/images/20190307-Fig7.png" alt="Figure 3"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;由于水平有限，我觉得这篇文章读起来真是太难了！太难了！！太难了！！！&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Nature" scheme="https://jingjingzhai.github.io/categories/Nature/"/>
+    
+    
+      <category term="Maize" scheme="https://jingjingzhai.github.io/tags/Maize/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Evolutionarily informed deep learning methods for predicting relative transcript abundance from DNA sequence</title>
+    <link href="https://jingjingzhai.github.io/2019/03/07/Evolutionarily-informed-deep-learning-methods-forpredicting-relative-transcript-abundance-fromDNA-sequence/"/>
+    <id>https://jingjingzhai.github.io/2019/03/07/Evolutionarily-informed-deep-learning-methods-forpredicting-relative-transcript-abundance-fromDNA-sequence/</id>
+    <published>2019-03-07T05:13:22.000Z</published>
+    <updated>2019-03-07T13:25:53.420Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>这篇文章是康奈尔大学<strong>Edward S. Buckler</strong>课题组在PNAS发表的关于预测相对表达量的文章，虽然题目说是深度学习方法，但其实本文最大的亮点在于训练数据集、测试数据集的分割。作者认为，由于生物体在进化过程中，基因之间会共享一些进化信息，因此在分割数据集的时候不能像CV领域里一样，将数据集随机分割，这样容易导致过拟合。因此这篇文章就把以预测转录本相对表达量为例，在分割数据集的时候考虑到进化信息（也就是基因家族）。至于在模型方法方面，还是采用传统的CNN。<br><a id="more"></a><br><a href="https://www.pnas.org/content/early/2019/03/05/1814551116" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>深度学习在许多领域彻底改变了预测，并且有着与遗传学与分子生物学同样的潜力。然而，以当前形式应用这些方法忽略了生物系统内的进化依赖性，因此可能导致假阳性以及错误的结论；</li><li>作者因此开发了两种考虑了进化相关的机器学习模型：（i）gene-family-guided splitting; (ii）ortholog contrasts。第一种方法通过在训练集与测试集中包含不同家族信息来约束模型；第二种方法使用直系同源基因之间的进化知识比较来控制和利用训练过程中的进化分歧。</li><li>用mRNA表达水平预测这两种方法，得到auROC值在0.75至0.94的范围内。模型权重显示了可解释的生物学模式，导致假设3’UTR对于微调mRNA丰度水平更为重要，而5’UTR对于大规模变化更为重要。</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>深度学习尤其是CNN在图像识别以及NLP领域都取得了很大进步，这些方法也随后被应用于分子生物学、基因组学的研究当中，但是进化关系使得在生物学中正确训练和测试模型比上面提到的图像或文本分类问题更具挑战性；</li><li>举个例子，如果一个人想预测mRNA的表达水平，标准的图像识别方法就是将数据集随机分成Training、Validation、Testing，但是由于基因之间的共享的进化历史（基因家族相关性、基因重复等），随机分会导致各组数据之间有依赖，测试数据集不够独立。因此没有考虑进化关系的模型就会很容易出现过拟合；</li><li>因此作者就提出了两个基于CNN的方法（如下<strong>Figure 1A</strong>所示，但其实就是关于数据集的分割不同）。第一种方法，作者起名为<strong>gene-family-guided splitting</strong>,实则就是在分割训练集与测试集的时候将同一家族的基因分到一起，这样训练集与测试集合不存在基因家族的overlap；第二种方法为<strong>ortholog contrasts</strong>, 如<strong>Figure 1B</strong>所示，这种方法主要针对于有两个物种的预测问题，就将直系同源的基因放到一起。<br><img src="/images/20190307-Fig1.png" alt="Figure 1"></li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-基于DNA序列区分表达基因与为表达基因-Differentiating-Between-Expressed-and-Unexpressed-Genes-Based-on-DNA-Sequence"><a href="#3-1-基于DNA序列区分表达基因与为表达基因-Differentiating-Between-Expressed-and-Unexpressed-Genes-Based-on-DNA-Sequence" class="headerlink" title="3.1 基于DNA序列区分表达基因与为表达基因 (Differentiating Between Expressed and Unexpressed Genes Based on DNA Sequence)"></a>3.1 基于DNA序列区分表达基因与为表达基因 (Differentiating Between Expressed and Unexpressed Genes Based on DNA Sequence)</h4><ul><li>这部分作者构建了一个模型用来区分基因是expressed or unexpressed, 也就是最常见的二分类模型，在训练的时候采取了图1中的第一种方法。<br><img src="/images/20190307-Fig2.png" alt="Figure 2"></li><li><strong>Figure 2A:</strong> 作者首先构造了一个叫做<strong>pseudogene</strong>的模型，也基因的上下游1k的序列作为模型的输入；</li><li><strong>Figure 2B:</strong> 作者首先对玉米中所有的基因进行分类，这里是用了7篇文章中的422个组织的RNA-Seq数据，红色、绿色和蓝色分别代表高表达、中等表达和不表达；</li><li><strong>Figure 2C:</strong> 作者<strong>Figure 2B</strong>中基因的分类，分别训练了两个<strong>pseudogene</strong>模型，一个是<strong>Off/On</strong>, 也就是用中等表达和高表达作为正样本；另外一个是<strong>Off/High</strong>，用高表达的作为正样本，使用downsampling使得正负样本比例1:1。随机十次五折交叉验证来评估模型的准确性；</li><li>同时作者在补充材料<strong>Figure S1</strong>中证明了如果采用随机样本分割，auROC和accuracy都会提升，进一步反映了之前的基于随机分割的方法会造成over-fitting。</li></ul><h4 id="3-2-使用直系同源对比预测两个基因中的哪一个更高表达-Predicting-Which-of-Two-Genes-Is-More-Highly-Expressed-Using-Ortholog-Contrasts"><a href="#3-2-使用直系同源对比预测两个基因中的哪一个更高表达-Predicting-Which-of-Two-Genes-Is-More-Highly-Expressed-Using-Ortholog-Contrasts" class="headerlink" title="3.2 使用直系同源对比预测两个基因中的哪一个更高表达 (Predicting Which of Two Genes Is More Highly Expressed Using Ortholog Contrasts)"></a>3.2 使用直系同源对比预测两个基因中的哪一个更高表达 (Predicting Which of Two Genes Is More Highly Expressed Using Ortholog Contrasts)</h4><ul><li>这部分主要用来讲述如何预测直系同源的两个基因哪个基因的表达量更高，当然我并没有理解预测这个有啥用，附上文章原话<strong>The ortholog contrast model follows a simple approach derived from phylogenetics, where the most recent common ancestor of two closely related genes can be represented as a contrast between the two. Contrasting genes in this manner directly accounts for statistical dependencies between the genes that would otherwise hamper comparison with other genes. Building on this idea, the ortholog contrast method com- pares two genes from different genomes (or alleles from the same species) to each other and predicts the difference between the expression levels of the two</strong>；<br><img src="/images/20190307-Fig3.png" alt="Figure 3"></li><li><strong>Figure 3A:</strong> 作者在这里仍然使用一个二进制模型，1代表gene1表达比gene2高，0相反，训练的时候去掉表达为0的基因；</li><li><strong>Figure 3B:</strong> 同样适用accuracy和auROC来比较不同特征是模型的精度；</li></ul><h4 id="3-3-对CNN模型的解读揭示了对转录本丰度预测的重要特征和元件-Interpretation-of-CNN-Models-Reveals-Elements-and-Motifs-Important-for-Transcript-Abundance"><a href="#3-3-对CNN模型的解读揭示了对转录本丰度预测的重要特征和元件-Interpretation-of-CNN-Models-Reveals-Elements-and-Motifs-Important-for-Transcript-Abundance" class="headerlink" title="3.3 对CNN模型的解读揭示了对转录本丰度预测的重要特征和元件 (Interpretation of CNN Models Reveals Elements and Motifs Important for Transcript Abundance)"></a>3.3 对CNN模型的解读揭示了对转录本丰度预测的重要特征和元件 (Interpretation of CNN Models Reveals Elements and Motifs Important for Transcript Abundance)</h4><ul><li>前面的分析都比较套路，这部分作者主要根据CNN中每个神经元的权重分析哪些特征对于预测转录本的相对丰度很重要。类似于传统机器学习分析中的feature importance；首先目前的模型并不能区分转录本丰度是由于合成还是降解导致的，但是未来如果用GRO-Seq，PRO-Seq等数据训练，将可能实现这个目标。</li></ul><p><img src="/images/20190307-Fig4.png" alt="Figure 5"></p><ul><li><strong>Figure 5A-5B:</strong> 作者在这部分用了两种CNN可视化的方法，一个是<a href="https://arxiv.org/abs/1704.02685" target="_blank" rel="noopener">DeepLIFT</a>和<a href="https://arxiv.org/abs/1312.6034" target="_blank" rel="noopener">Occlusion</a>.因此这个图展示的就是用promoter构建的pseudo模型中3‘UTR的贡献以及terminator构建模型中5’UTR的贡献，二者是互补的。A图<strong>Off/On</strong>模型；B图是<strong>Off/High</strong>模型；而且nonpseudogene的promoter信号比terminator更强，这也与<strong>Figure 2</strong>结论一致（单独基于promoter序列预测比单独基于terminator序列预测效果更好）。</li></ul><p><img src="/images/20190307-Fig5.png" alt="Figure 6"></p><ul><li><strong>Figure 6:</strong> 接下来是<strong>ortholog contrasts</strong>模型的可视化，与上一个不同，terminator区域表现出更强的信号；</li></ul><h3 id="4-讨论"><a href="#4-讨论" class="headerlink" title="4. 讨论"></a>4. 讨论</h3><h4 id="4-1-3’UTR对于RNA丰度的小范围变化可能更重要"><a href="#4-1-3’UTR对于RNA丰度的小范围变化可能更重要" class="headerlink" title="4.1 3’UTR对于RNA丰度的小范围变化可能更重要"></a>4.1 3’UTR对于RNA丰度的小范围变化可能更重要</h4><h4 id="4-2-不同模式和训练方法的优点和缺点"><a href="#4-2-不同模式和训练方法的优点和缺点" class="headerlink" title="4.2 不同模式和训练方法的优点和缺点"></a>4.2 不同模式和训练方法的优点和缺点</h4><h4 id="4-3-结论与展望"><a href="#4-3-结论与展望" class="headerlink" title="4.3 结论与展望"></a>4.3 结论与展望</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;这篇文章是康奈尔大学&lt;strong&gt;Edward S. Buckler&lt;/strong&gt;课题组在PNAS发表的关于预测相对表达量的文章，虽然题目说是深度学习方法，但其实本文最大的亮点在于训练数据集、测试数据集的分割。作者认为，由于生物体在进化过程中，基因之间会共享一些进化信息，因此在分割数据集的时候不能像CV领域里一样，将数据集随机分割，这样容易导致过拟合。因此这篇文章就把以预测转录本相对表达量为例，在分割数据集的时候考虑到进化信息（也就是基因家族）。至于在模型方法方面，还是采用传统的CNN。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PNAS" scheme="https://jingjingzhai.github.io/categories/PNAS/"/>
+    
+    
+      <category term="深度学习" scheme="https://jingjingzhai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Transcript abundance prediction" scheme="https://jingjingzhai.github.io/tags/Transcript-abundance-prediction/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RECAP reveals the true statistical significance of ChIP-seq peak calls</title>
+    <link href="https://jingjingzhai.github.io/2019/03/06/RECAP-reveals-the-true-statistical-significance-of-ChIP-seq-peak-calls/"/>
+    <id>https://jingjingzhai.github.io/2019/03/06/RECAP-reveals-the-true-statistical-significance-of-ChIP-seq-peak-calls/</id>
+    <published>2019-03-06T08:24:59.000Z</published>
+    <updated>2019-03-06T08:39:33.423Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li><strong>动机:</strong> Peak calling是ChIP-Seq分析的一个关键步骤，但是很多软件在评估富集peak的显著性的时候都掉入了假设检验的陷阱里，那就是用了两次数据使得peak calling的出来的p值是没有意义的，因此也不能反应peak的可靠性。</li><li><strong>结果:</strong> 作者首先使用模拟的ChIP-Seq数据，证明了几个软件MACS、SICER和diffReps得出的p值都是biased，接下来就提出了自己的<strong>wrapper algorithm</strong>, 通过重采样估计单调变换（并没有看懂啥意思😛）。当应用于零假设数据时，在ChIP-seq和对照之间没有富集，RECAP重新校准的p值大致均匀分布。对于存在真正富集的数据，RECAP p值可以更好地估计候选峰的真实统计显着性和更好的错误发现率估计值，这与经验再现性更好地相关。</li><li><strong>软件地址:</strong> <a href="https://github.com/theodorejperkins/RECAP" target="_blank" rel="noopener">https://github.com/theodorejperkins/RECAP</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;h3 id=&quot;1-摘要&quot;&gt;&lt;a href=&quot;#1-摘要&quot; class=&quot;headerlink&quot; title=&quot;1. 摘要&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="Bioinformatics" scheme="https://jingjingzhai.github.io/categories/Bioinformatics/"/>
+    
+    
+      <category term="Peak Calling" scheme="https://jingjingzhai.github.io/tags/Peak-Calling/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Predicting splicing from primary sequence with deep learning (待更。。。)</title>
+    <link href="https://jingjingzhai.github.io/2019/03/05/Predicting-splicing-from-primary-sequence-with-deep-learning/"/>
+    <id>https://jingjingzhai.github.io/2019/03/05/Predicting-splicing-from-primary-sequence-with-deep-learning/</id>
+    <published>2019-03-05T03:16:30.000Z</published>
+    <updated>2019-03-08T07:09:00.265Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Cell" scheme="https://jingjingzhai.github.io/categories/Cell/"/>
+    
+    
+      <category term="深度学习" scheme="https://jingjingzhai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Splicing prediction" scheme="https://jingjingzhai.github.io/tags/Splicing-prediction/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A resource of variant effect predictions of single nucleotide variants in model organisms</title>
+    <link href="https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/"/>
+    <id>https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/</id>
+    <published>2019-03-04T07:12:28.000Z</published>
+    <updated>2019-03-10T03:06:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>这篇文章是2018年12月发表在期刊<a href="http://msb.embopress.org/" target="_blank" rel="noopener">molecular system biology</a>上的一篇关于SNV效应预测的资源数据库。通讯作者和第一作者都来自<a href="https://www.ebi.ac.uk/" target="_blank" rel="noopener">European Bioinformatics Institute</a>的<a href="https://www.embl.de" target="_blank" rel="noopener">分子生物学实验室</a>。<a id="more"></a>该文章的亮点主要在于从分子机制层面解析SNV，在人类疾病相关的SNP研究中，早在2012年就有相关的对SNP进行注释的工作（以<a href="https://genome.cshlp.org/content/22/9/1790.abstract" target="_blank" rel="noopener">RegulomeDB</a>为代表），那时还只是针对SNP与功能基因组在物理位置的overlap来注释。随后也有各种基于机器学习/深度学习对各种调控序列（TFBS、DHS、Methylation）建模, 然后根据SNP上下游的序列预测两个分值，再根据这个分值构建二分类模型，从而实现注释SNP。这样的软件有很多，随后又有文章<a href="https://www.nature.com/articles/s41467-017-01261-5" target="_blank" rel="noopener">FUMA</a>整合了各种各样的预测软件，但个人认为FUMA这篇文章虽然发表了NC，而且引用也很高，但是却没有MSB这篇文章的意义、创新性大。</p><p><a href="http://msb.embopress.org/content/14/12/e8430" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>在遗传学中，不论是编码区域还是非编码区域的SNV的效应都是生物学家感兴趣的。目前虽然也有很多计算方法用于阐述SNV在细胞机制中的效应，但是并没有直接全面覆盖SNV的分子效应 (molecular effects);</li><li>为了解决这个问题，作者汇编(compile; to collect information from different places and arrange it in a book, report, or list)了基于序列和基于结构的SNP效应predictor，并预测了人类和酵母中相对于参考基因组几乎所有的氨基酸和核苷酸变异；</li><li>这篇文章涉及到的机制研究包括: <strong>protein stability</strong>, <strong>interaction interfaces</strong>, <strong>post-translational modifications</strong> and <strong>transcription factor binding sites</strong>。作者向我们展示了如何使用这个数据资源来生成<strong>protein complex burden scores</strong> 进而与表型进行关联;</li><li>数据资源可以通过以下链接访问：<a href="http://www.mutfunc.com" target="_blank" rel="noopener">www.mutfunc.com</a></li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>GWAS是将表型与基因型联系的重要手段，但是GWAS既不能找到causal variant，又难以解释causal variant的机制</li><li>编码区和非编码区的SNP都可以影响各种各样的生物学功能；</li><li>通过预测的手段去挖掘遗传变异改变的机制将是省时有省财的方法；虽然目前也有很多关于这方面的预测，但是都不能提供全面的预测效应以及解析机制而且使用起来需要专业人员操作；</li><li>因此这篇文章中作者大量的预测了人类、酵母和大肠杆菌中几乎所有SNV的变异，从不同层面（包括<strong>the context of conserved protein regions, protein stability, protein– protein interaction (PPI) interfaces, PTMs, kinase–substrate interactions, short linear motifs (SLiMs), start and stop codons, and tran- scription factor (TF) binding sites (TFBSs)</strong>）解析SNP的机制。</li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-在酵母和人类个体中功能基因组区域展现出了进化约束-Functional-genomic-regions-display-evolutionary-constraint-across-yeast-and-human-individuals"><a href="#3-1-在酵母和人类个体中功能基因组区域展现出了进化约束-Functional-genomic-regions-display-evolutionary-constraint-across-yeast-and-human-individuals" class="headerlink" title="3.1 在酵母和人类个体中功能基因组区域展现出了进化约束 (Functional genomic regions display evolutionary constraint across yeast and human individuals)"></a>3.1 在酵母和人类个体中功能基因组区域展现出了进化约束 (Functional genomic regions display evolutionary constraint across yeast and human individuals)</h4><ul><li>这部分作者主要从RSA、PTM、TFBS三个层面论证有功能的区域富集的自然变异更少</li></ul><p><img src="/images/20190304-Fig1.png" alt="Population-level sequence constraint in genome functional elements"></p><ul><li><strong>RSA: relative surface accessibility,蛋白质表面氨基酸残基的可及性。</strong></li><li><strong>Figure 1A-1B:</strong> 文章根据RSA将氨基酸残基分成bin，统计这个bin里自然变异（natural variation）的数目,与随机选取的残基进行比较（也就是纵坐标表示的expected variant count), 然后随机1000次（permutation），计算p值。发现隐藏（buried region; <strong>对应1A</strong>, RSA越小表明是隐藏区域）与结合区域（interface region;对应<strong>对应1B</strong>, delta RSA越大表明事结合区域）与暴露在外面的区域相比，前者的自然变异数目更少；</li><li><strong>Figure 1C:</strong> 这个图主要是想分析与随机相比，不同类型的PTM (翻译后修饰；去了上下游5个残基)富集的自然变异是否有差异；</li><li><strong>Figure 1D:</strong> 从图C中我们并没有看出不同类型的PTM有很强的约束性，随后作者又分析了每个PTM上下游5个残基的自然变异富集情况，发现如果PTM的周围也有其他PTM存在的话，约束会变强（自然变异的数目变少）;</li><li><strong>Figure 1E:</strong> 接下来作者分析了TFBS内自然变异的富集情况，预测出来的TFBS里的SNV与chip-seq peak里的其他区域进行比较，有些转录因子结合区域是非常constraint；</li><li><strong>Figure 1F:</strong> 进一步研究分析发现，那些TFBS聚成cluster的位点约束性更强；</li><li><strong>Figure 1G:</strong> 作者首先使用了information content (IC)概念，是指：position-specific information content (IC) of the TF specificity position weight matrices，根据PWM计算出来的值，越大代表与TF结合能力越强。这个图表明IC越大，约束性越强，与预期的结果一致；</li></ul><p><img src="/images/20190304-Fig9.png" alt="Figure 1H"></p><ul><li><p><strong>Figure 1H:</strong> 这部分作者举了四个例子表明高IC与低IC位置的约束性差异。</p></li><li><p>其他信息：(A, B, F) P-values represent a one-sided Wilcoxon test. (A, B, C, D, F) Error bars represent the standard deviation. One hundred random samples were used. (G) P-value shown is computed using a one-sided Kolmogorov–Smirnov test.</p></li></ul><h4 id="3-2-单核苷酸变异的机制效应的综合资源-A-comprehensive-resource-of-mechanistic-effects-of-single-nucleotide-variants"><a href="#3-2-单核苷酸变异的机制效应的综合资源-A-comprehensive-resource-of-mechanistic-effects-of-single-nucleotide-variants" class="headerlink" title="3.2 单核苷酸变异的机制效应的综合资源 (A comprehensive resource of mechanistic effects of single nucleotide variants)"></a>3.2 单核苷酸变异的机制效应的综合资源 (A comprehensive resource of mechanistic effects of single nucleotide variants)</h4><p><img src="/images/20190304-Fig2.png" alt="Fig2A"></p><ul><li><strong>Figure 2A:</strong> 大范围的预测SNV对于保守蛋白区域、蛋白稳定性、蛋白相互作用表面、激酶-底物磷酸化以及其他的PTMs、linear motifs、TFBS、start and stop codons</li></ul><h4 id="3-3-功能重要的位置富含预测的有害变异-Functionally-important-positions-are-enriched-in-predicted-deleterious-variants"><a href="#3-3-功能重要的位置富含预测的有害变异-Functionally-important-positions-are-enriched-in-predicted-deleterious-variants" class="headerlink" title="3.3 功能重要的位置富含预测的有害变异 (Functionally important positions are enriched in predicted deleterious variants)"></a>3.3 功能重要的位置富含预测的有害变异 (Functionally important positions are enriched in predicted deleterious variants)</h4><p><img src="/images/20190304-Fig3.png" alt="Fig2BCD"></p><ul><li><strong>Figure 2B:</strong> 首先用essential gene中是否拥有更少的致病自然变异，结论与之前一致，essential gene中致病的自然变异更少；</li><li><strong>Figure 2C:</strong> 致病自然变异与MAF的关系，从图中可以看出，MAF越大，致病的比例越低，这也暗示了罕见变异的重要性；</li><li><strong>Figure 2D:</strong> 此部分评估了不同软件对于致病变异的分类能力，SIFT拥有最好的分类性能。SIFT performed the best at discriminating pathogenic variants from benign (AUC H. sapiens = 0.87, S. cerevisiae = 0.92), followed by FoldX interfaces (AUC H. sapi- ens = 0.64, S. cerevisiae = 0.72) and FoldX stability (AUC H. sapi- ens = 0.70, S. cerevisiae = 0.62, Fig 2D).</li></ul><p><img src="/images/20190304-Fig4.png" alt="Fig2EF"></p><ul><li><strong>Figure 2E-2F:</strong> 虽然功能重要的区域中（preserves motif, disrupts motif, disrupts non-PTM res, disrupts PRM res, Start lost, Stop lost, Stop gain）致病自然变异的数目很少，但从统计意义来说，这些区域还是富含质变变异的。</li></ul><h4 id="3-4-对于不确定显著性的SNP预测其机制效应-Predicting-mechanistic-impacts-of-variants-of-uncertain-significance"><a href="#3-4-对于不确定显著性的SNP预测其机制效应-Predicting-mechanistic-impacts-of-variants-of-uncertain-significance" class="headerlink" title="3.4 对于不确定显著性的SNP预测其机制效应 (Predicting mechanistic impacts of variants of uncertain significance)"></a>3.4 对于不确定显著性的SNP预测其机制效应 (Predicting mechanistic impacts of variants of uncertain significance)</h4><p><img src="/images/20190304-Fig5.png" alt="Fig3"></p><ul><li><strong>VUS: variants of uncertain significance</strong>, 已经通过遗传检验检测出来的SNP，但是还不确定是benign或者pathogenic。</li><li>Focus到影响蛋白结构完整性的变异</li><li>举例子证明找到的会影响蛋白结构的VUS</li></ul><h4 id="3-5-酿酒酵母菌株间的基因组差异是表型相似性的重要但弱的预测因子"><a href="#3-5-酿酒酵母菌株间的基因组差异是表型相似性的重要但弱的预测因子" class="headerlink" title="3.5 酿酒酵母菌株间的基因组差异是表型相似性的重要但弱的预测因子"></a>3.5 酿酒酵母菌株间的基因组差异是表型相似性的重要但弱的预测因子</h4><ul><li>这部分内容用来阐述如何使用<a href="http://www.mutfunc.com" target="_blank" rel="noopener">mutfunc</a>来进行基因型-表型的关联分析。</li></ul><p><img src="/images/20190304-Fig6.png" alt="Fig4AC"></p><ul><li><strong>Figure 4A:</strong> 两个重复之间的S分值的一致性说明了数据一致性、可靠性。</li><li><strong>Figure 4C:</strong> 93个测序菌株的基因型距离以及表型距离的散点图。</li></ul><p><img src="/images/20190304-Fig7.png" alt="Fig4B"></p><ul><li><strong>Figure 4B:</strong> S-score在不同菌株不同条件下的热图。</li></ul><h4 id="3-6-Gene-and-complex-disruption-scores-for-genotype-to-phenotype-associations"><a href="#3-6-Gene-and-complex-disruption-scores-for-genotype-to-phenotype-associations" class="headerlink" title="3.6 Gene and complex disruption scores for genotype-to- phenotype associations"></a>3.6 Gene and complex disruption scores for genotype-to- phenotype associations</h4><p>由于绝大部分变异都是中性的，因此此部分作者使用SIFT(for conservation), FoldX(protein stability)和protein truncating variants (PTVs)从基因水平计算<strong>a total gene burden</strong>或者<strong>disruption score</strong></p><p><img src="/images/20190304-Fig8.png" alt="Fig5ABC"></p><ul><li><strong>Figure 5A:</strong> 基因水平计算<strong>a total gene burden</strong>或者<strong>disruption score</strong>的方法。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;这篇文章是2018年12月发表在期刊&lt;a href=&quot;http://msb.embopress.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;molecular system biology&lt;/a&gt;上的一篇关于SNV效应预测的资源数据库。通讯作者和第一作者都来自&lt;a href=&quot;https://www.ebi.ac.uk/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;European Bioinformatics Institute&lt;/a&gt;的&lt;a href=&quot;https://www.embl.de&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;分子生物学实验室&lt;/a&gt;。
+    
+    </summary>
+    
+      <category term="MSB" scheme="https://jingjingzhai.github.io/categories/MSB/"/>
+    
+    
+      <category term="SNP Annotation" scheme="https://jingjingzhai.github.io/tags/SNP-Annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Anchor trans-cell type prediction of transcription factor binding sites</title>
+    <link href="https://jingjingzhai.github.io/2019/02/22/Anchor%20trans-cell%20type%20prediction%20of%20transcription%20factor%20binding%20sites/"/>
+    <id>https://jingjingzhai.github.io/2019/02/22/Anchor trans-cell type prediction of transcription factor binding sites/</id>
+    <published>2019-02-22T07:12:28.000Z</published>
+    <updated>2019-03-07T07:28:12.532Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。<br><a id="more"></a><br><a href="https://genome.cshlp.org/content/early/2018/12/19/gr.237156.118" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><ul><li>ENCODE计划中虽然有TF-Cell type的ChIP-seq数据，但是这种具有完美对应关系的数据很少；</li><li>早期有很多基于序列的模型来预测TF Binding，但是单纯的基于序列不能分辨出cell-type-specific binding sites；</li><li>TF binding于DNase-seq关系紧密，ENCODE中有大量cell type-specific的DNase-seq数据</li></ul><h3 id="2-anchor方法概述"><a href="#2-anchor方法概述" class="headerlink" title="2. anchor方法概述"></a>2. anchor方法概述</h3><h4 id="2-1-数据集"><a href="#2-1-数据集" class="headerlink" title="2.1 数据集"></a>2.1 数据集</h4><ul><li>84个ChIP-seq实验涉及到32个TFs和13个细胞类型；</li><li>13个细胞类型的DNase-seq数据；</li><li>染色体1,8,21的数据用于最终模型的评估； ChrY在整个训练以及评估过程中都不考虑；</li><li>测试数据集共有13个TF-cell type pairs，涉及到12个转录因子，4个细胞类型（liver，iPSC，PC-3 and K562），其中liver占了9对，liver这个细胞类型在训练集中没出现过，所以这个预测起来是最难的。<h4 id="2-2-方法"><a href="#2-2-方法" class="headerlink" title="2.2 方法"></a>2.2 方法</h4></li><li>将染色体分成固定的两个部分：training sets(chr2，chr4，chr6，chr7，chr12，chr13，chr15，chr16，chr17，chr20，chrX)和validation sets (chr3, chr5, chr9, chr10, chr11, chr14, chr18, chr19, chr22).避免染色体过拟合</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Genome Research" scheme="https://jingjingzhai.github.io/categories/Genome-Research/"/>
+    
+    
+      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Accurate prediction of cell type-specific transcription factor binding</title>
+    <link href="https://jingjingzhai.github.io/2019/02/22/Accurate%20prediction%20of%20cell%20type-specific%20transcription%20factor%20binding/"/>
+    <id>https://jingjingzhai.github.io/2019/02/22/Accurate prediction of cell type-specific transcription factor binding/</id>
+    <published>2019-02-22T07:12:28.000Z</published>
+    <updated>2019-03-07T07:27:15.407Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Biology期刊上。<br><a id="more"></a></p><p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1614-y" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-方法"><a href="#1-方法" class="headerlink" title="1. 方法"></a>1. 方法</h3><p>这篇文章结合了以下四个ideas</p><ul><li>第一，不仅仅使用数据库中的motif，还有从ChIP-Seq以及DNase-Seq数据中通过de novo motif discovery的方法（这里文章提到了sparse local inhomogeneous mixture models; <a href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkv577" target="_blank" rel="noopener">ref</a>; 不太清楚这是个什么东西？？？）得到的motif信息，也就是说，丰富而全面的motif信息；</li><li>第二，不太理解</li><li>第三，应用监督学习方法中的判别学习原则（discriminative learning principle）；</li><li>第四，判别学习与迭代学习方法相结合来refining负样本的展示；</li><li>最后，将每次在不同cell types上迭代的结果进行整合成ensemble-like approach。</li></ul><h3 id="2-数据"><a href="#2-数据" class="headerlink" title="2. 数据"></a>2. 数据</h3><h4 id="2-1-Dream-challenge提供的数据"><a href="#2-1-Dream-challenge提供的数据" class="headerlink" title="2.1 Dream-challenge提供的数据"></a>2.1 Dream-challenge提供的数据</h4><ul><li>人类参考基因组hg19</li><li>Cell type-specific DNase-seq “fold-enrichment coverage” tracks,我理解的就是DNase-Seq中peak相对于control的fold change，平滑成150-bp的window（smoothed in a 150-bp window）</li><li>Cell type-specific DNase-seq peak files in “conservative” and “relaxed” flavors</li><li>细胞类型特异性的RNA-Seq数据</li><li>细胞类型特异性的转录因子ChIP-Seq数据</li><li>细胞类型特异性的转录因子特异的标签，共三类，B = “bound”, A = “ambiguous”, U = “unbound”<h4 id="2-2-额外的数据"><a href="#2-2-额外的数据" class="headerlink" title="2.2 额外的数据"></a>2.2 额外的数据</h4></li><li>从HOCOMOCO和DBcorrDB下载的motif数据</li><li>从<a href="https://www.nature.com/articles/nmeth.3065" target="_blank" rel="noopener">一篇文献</a>获得的motif数据</li><li>ENCODE中下载DNase-seq,至少连个重复</li></ul><h4 id="2-3-总结"><a href="#2-3-总结" class="headerlink" title="2.3 总结"></a>2.3 总结</h4><ul><li>DREAM比赛中采用的label的方法可以借鉴，同样是将基因组分成k-bp的bin，然后与peak进行overlap，如果与peak overlap的长度大于bin的一半，则为bound，如果大于1小于一半，则为ambiguous，剩下的为unbound</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Biology期刊上。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Genome Biology" scheme="https://jingjingzhai.github.io/categories/Genome-Biology/"/>
+    
+    
+      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DeepBind</title>
+    <link href="https://jingjingzhai.github.io/2018/11/23/DeepBind%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://jingjingzhai.github.io/2018/11/23/DeepBind学习笔记/</id>
+    <published>2018-11-23T13:03:09.000Z</published>
+    <updated>2019-03-08T01:31:52.360Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>了解DNA-binding以及RNA-binding特异性对于确定生物系统中的调控过程非常重要，因此文章使用当时火热的<strong>深度卷积神经网络</strong>构建模型，预测蛋白绑定DNA序列的特异性。同时作者发现使用体外数据训练模型，可以有效的预测体内的binding事件。<br><a id="more"></a><br><a href="">文章链接</a></p><h3 id="1-数据集"><a href="#1-数据集" class="headerlink" title="1. 数据集"></a>1. 数据集</h3><ul><li><strong>负样本的挑选</strong><br>对于负样本的挑选，文章中采用<strong>双核苷酸打乱</strong>的方式，用文章的原话来解释原因：“<strong>The advantage of a dinuc shuffled background is that it is more ‘difficult’ than standard nucleotide shuffling.</strong>” 同时，对于正负样本的比例，文章采取1：1的策略，但是对于样本数目（peak数目）非常少的数据，为了避免数据的过拟合，DeepBind采取选取更多负样本的策略，因此在最后训练的过程中每个模型至少有10,000负样本。如果正样本的数目少于10,000，就是用<strong>有放回抽样</strong>的方法，从正样本数据集中随机抽10,000次以达到正负样本的平衡。</li></ul><h3 id="2-方法细节"><a href="#2-方法细节" class="headerlink" title="2. 方法细节"></a>2. 方法细节</h3><ul><li><p><strong>特征编码</strong><br>与普通One-hot encoding不同的是，改文章添加了一个<strong>maximum motif detector <em>m</em></strong>, 如下图：<br><img src="/images/DeepBind_Fig1.jpg" alt="编码方式"><br>例如：对于序列AGCT，设置<em>m=3</em>,将编码成以下方式：<br><img src="/images/DeepBind_Fig2.jpg" alt="编码方式"> </p></li><li><p><strong>激活函数</strong><br>ReLu</p></li><li><strong>池化</strong><br>既有Max pooling又有Average pooling</li><li><strong>自动调参</strong><br>由于深度卷积神经网络模型之内，设计到的超参很多，因此超参的选择很重要，文章基于随机抽样进行超参选择（<a href="http://www.jmlr.org/papers/v13/bergstra12a.html" target="_blank" rel="noopener">James Bergstra and Yoshua Bengio, 2012</a>），即对于同一组数据，将训练几十甚至几百了模型。所以这篇文章真是训练了<strong>好多好多好多</strong>的模型。</li></ul><h3 id="3-训练数据集（ChIP-Seq）的筛选"><a href="#3-训练数据集（ChIP-Seq）的筛选" class="headerlink" title="3. 训练数据集（ChIP-Seq）的筛选"></a>3. 训练数据集（ChIP-Seq）的筛选</h3><ul><li><p><strong>Good Qualit数据定义:</strong> We only considered experiments with no experimental treatment and a “Good” quality annotation. 也就是说选取ChIP-Seq数据集中没有额外的实验处理； 每个正样本就是101-nt的DNA序列（以peak summit为中点）。然后根据每个peak对应的coverage对peeak进行排序。</p></li><li><p>文章中506组ChIP-Seq只对应137个转录因子，按照<strong>Supplementary Table 5</strong>提供的结果来看，文章是每组数据构建一个模型。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;了解DNA-binding以及RNA-binding特异性对于确定生物系统中的调控过程非常重要，因此文章使用当时火热的&lt;strong&gt;深度卷积神经网络&lt;/strong&gt;构建模型，预测蛋白绑定DNA序列的特异性。同时作者发现使用体外数据训练模型，可以有效的预测体内的binding事件。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Nature Biotechnology" scheme="https://jingjingzhai.github.io/categories/Nature-Biotechnology/"/>
+    
+    
+      <category term="SNP Annotation" scheme="https://jingjingzhai.github.io/tags/SNP-Annotation/"/>
+    
+      <category term="深度学习" scheme="https://jingjingzhai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+</feed>
