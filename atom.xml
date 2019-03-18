@@ -249,28 +249,6 @@
   </entry>
   
   <entry>
-    <title>Anchor trans-cell type prediction of transcription factor binding sites</title>
-    <link href="https://jingjingzhai.github.io/2019/02/22/Anchor%20trans-cell%20type%20prediction%20of%20transcription%20factor%20binding%20sites/"/>
-    <id>https://jingjingzhai.github.io/2019/02/22/Anchor trans-cell type prediction of transcription factor binding sites/</id>
-    <published>2019-02-22T07:12:28.000Z</published>
-    <updated>2019-03-07T07:28:12.532Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。<br><a id="more"></a><br><a href="https://genome.cshlp.org/content/early/2018/12/19/gr.237156.118" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><ul><li>ENCODE计划中虽然有TF-Cell type的ChIP-seq数据，但是这种具有完美对应关系的数据很少；</li><li>早期有很多基于序列的模型来预测TF Binding，但是单纯的基于序列不能分辨出cell-type-specific binding sites；</li><li>TF binding于DNase-seq关系紧密，ENCODE中有大量cell type-specific的DNase-seq数据</li></ul><h3 id="2-anchor方法概述"><a href="#2-anchor方法概述" class="headerlink" title="2. anchor方法概述"></a>2. anchor方法概述</h3><h4 id="2-1-数据集"><a href="#2-1-数据集" class="headerlink" title="2.1 数据集"></a>2.1 数据集</h4><ul><li>84个ChIP-seq实验涉及到32个TFs和13个细胞类型；</li><li>13个细胞类型的DNase-seq数据；</li><li>染色体1,8,21的数据用于最终模型的评估； ChrY在整个训练以及评估过程中都不考虑；</li><li>测试数据集共有13个TF-cell type pairs，涉及到12个转录因子，4个细胞类型（liver，iPSC，PC-3 and K562），其中liver占了9对，liver这个细胞类型在训练集中没出现过，所以这个预测起来是最难的。<h4 id="2-2-方法"><a href="#2-2-方法" class="headerlink" title="2.2 方法"></a>2.2 方法</h4></li><li>将染色体分成固定的两个部分：training sets(chr2，chr4，chr6，chr7，chr12，chr13，chr15，chr16，chr17，chr20，chrX)和validation sets (chr3, chr5, chr9, chr10, chr11, chr14, chr18, chr19, chr22).避免染色体过拟合</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Genome Research" scheme="https://jingjingzhai.github.io/categories/Genome-Research/"/>
-    
-    
-      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Accurate prediction of cell type-specific transcription factor binding</title>
     <link href="https://jingjingzhai.github.io/2019/02/22/Accurate%20prediction%20of%20cell%20type-specific%20transcription%20factor%20binding/"/>
     <id>https://jingjingzhai.github.io/2019/02/22/Accurate prediction of cell type-specific transcription factor binding/</id>
@@ -286,6 +264,28 @@
     </summary>
     
       <category term="Genome Biology" scheme="https://jingjingzhai.github.io/categories/Genome-Biology/"/>
+    
+    
+      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Anchor trans-cell type prediction of transcription factor binding sites</title>
+    <link href="https://jingjingzhai.github.io/2019/02/22/Anchor%20trans-cell%20type%20prediction%20of%20transcription%20factor%20binding%20sites/"/>
+    <id>https://jingjingzhai.github.io/2019/02/22/Anchor trans-cell type prediction of transcription factor binding sites/</id>
+    <published>2019-02-22T07:12:28.000Z</published>
+    <updated>2019-03-07T07:28:12.532Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。<br><a id="more"></a><br><a href="https://genome.cshlp.org/content/early/2018/12/19/gr.237156.118" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><ul><li>ENCODE计划中虽然有TF-Cell type的ChIP-seq数据，但是这种具有完美对应关系的数据很少；</li><li>早期有很多基于序列的模型来预测TF Binding，但是单纯的基于序列不能分辨出cell-type-specific binding sites；</li><li>TF binding于DNase-seq关系紧密，ENCODE中有大量cell type-specific的DNase-seq数据</li></ul><h3 id="2-anchor方法概述"><a href="#2-anchor方法概述" class="headerlink" title="2. anchor方法概述"></a>2. anchor方法概述</h3><h4 id="2-1-数据集"><a href="#2-1-数据集" class="headerlink" title="2.1 数据集"></a>2.1 数据集</h4><ul><li>84个ChIP-seq实验涉及到32个TFs和13个细胞类型；</li><li>13个细胞类型的DNase-seq数据；</li><li>染色体1,8,21的数据用于最终模型的评估； ChrY在整个训练以及评估过程中都不考虑；</li><li>测试数据集共有13个TF-cell type pairs，涉及到12个转录因子，4个细胞类型（liver，iPSC，PC-3 and K562），其中liver占了9对，liver这个细胞类型在训练集中没出现过，所以这个预测起来是最难的。<h4 id="2-2-方法"><a href="#2-2-方法" class="headerlink" title="2.2 方法"></a>2.2 方法</h4></li><li>将染色体分成固定的两个部分：training sets(chr2，chr4，chr6，chr7，chr12，chr13，chr15，chr16，chr17，chr20，chrX)和validation sets (chr3, chr5, chr9, chr10, chr11, chr14, chr18, chr19, chr22).避免染色体过拟合</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Genome Research" scheme="https://jingjingzhai.github.io/categories/Genome-Research/"/>
     
     
       <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
