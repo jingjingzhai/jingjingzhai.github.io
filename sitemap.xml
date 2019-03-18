@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jingjingzhai.github.io/2019/03/18/Predicting%203D%20chromatin%20contacts%20via%20bootstrapping%20deep%20learning/</loc>
+    
+    <lastmod>2019-03-18T03:57:50.896Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/</loc>
+    
+    <lastmod>2019-03-17T03:18:41.514Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jingjingzhai.github.io/about/index.html</loc>
     
     <lastmod>2019-03-15T12:26:22.603Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/</loc>
     
     <lastmod>2019-03-12T06:14:15.013Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/</loc>
-    
-    <lastmod>2019-03-10T03:06:19.207Z</lastmod>
     
   </url>
   
