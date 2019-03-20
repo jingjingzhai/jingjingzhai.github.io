@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jingjingzhai.github.io/about/index.html</loc>
+    <loc>https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/</loc>
     
-    <lastmod>2019-03-19T11:17:41.722Z</lastmod>
+    <lastmod>2019-03-20T04:02:50.950Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/</loc>
     
-    <lastmod>2019-03-18T13:08:39.578Z</lastmod>
+    <lastmod>2019-03-19T11:24:14.739Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jingjingzhai.github.io/about/index.html</loc>
+    
+    <lastmod>2019-03-19T11:17:41.722Z</lastmod>
     
   </url>
   
@@ -58,13 +65,6 @@
   </url>
   
   <url>
-    <loc>https://jingjingzhai.github.io/2019/03/05/Predicting-splicing-from-primary-sequence-with-deep-learning/</loc>
-    
-    <lastmod>2019-03-08T07:09:00.265Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jingjingzhai.github.io/2018/11/23/DeepBind%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2019-03-08T01:31:52.360Z</lastmod>
@@ -89,13 +89,6 @@
     <loc>https://jingjingzhai.github.io/2019/02/22/Accurate%20prediction%20of%20cell%20type-specific%20transcription%20factor%20binding/</loc>
     
     <lastmod>2019-03-07T07:27:15.407Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jingjingzhai.github.io/2019/03/06/RECAP-reveals-the-true-statistical-significance-of-ChIP-seq-peak-calls/</loc>
-    
-    <lastmod>2019-03-06T08:39:33.423Z</lastmod>
     
   </url>
   

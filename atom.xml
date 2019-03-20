@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jingjingzhai.github.io/"/>
-  <updated>2019-03-18T07:34:12.436Z</updated>
+  <updated>2019-03-20T04:02:50.950Z</updated>
   <id>https://jingjingzhai.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Predicting splicing from primary sequence with deep learning</title>
+    <link href="https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/"/>
+    <id>https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/</id>
+    <published>2019-03-20T03:16:30.000Z</published>
+    <updated>2019-03-20T04:02:50.950Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>这篇文章时2019年1月发表在Cell期刊用深度学习预测可变剪切。通讯作者来自于<a href="https://www.illumina.com/" target="_blank" rel="noopener">Illumina人工智能实验室</a>。å</p><p><a href="https://www.sciencedirect.com/science/article/pii/S0092867418316295" target="_blank" rel="noopener">文章连接</a><br><a href="https://basespace.illumina.com/s/5u6ThOblecrh" target="_blank" rel="noopener">SpliceAI model training</a><br><a href="https://github.com/Illumina/SpliceAI" target="_blank" rel="noopener">SpliceAI software</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>前体mRNA的剪接非常精确，但是背后的机制却还不清晰，作者描述了一种深度神经网络精确的预测splice junctions；</li><li>在预测出来影响可变剪切的同义突变和内含子突变中，使用RNA-Seq数据验证很高比例的有害突变；而且在预测出来的突变（影响可变剪切）他们显著富集在自闭症和智力残疾的患者中；</li><li>作者估计，罕见遗传性疾病患者中9％-11％的致病突变是由此前未被充分认识的疾病变异引起的。</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>外显子组测序改变了患有罕见遗传疾病的患者和家属的临床诊断，并且当作为一线测试时，显着减少了诊断odyssey(a long trip or period involving a lot of different and exciting activities, esp. while searching for something；来自Cambridge Dictionary)的时间和成本；但是外显子测序诊断罕见疾病只有25%-30%，仍然有大部分患者没有被诊断出来；</li><li>基因组的非编码区域在基因调控中扮演者重要的角色，占了causal disease loci的90%。事实上，非编码突变可以破坏mRNA的剪切尽管他们落在GT和AG之外，这些变异被成为<strong>cryptic splice variants</strong>, 长期以来被认为在罕见疾病中发挥着重要的角色。但是在临床治疗中，cryptic splice mutations却一直被忽略，主要是因为对于splice code理解不够深入，这也为精确的预测他们提供了很大的困难；</li><li>最近，RNA测序（RNA-seq）已经成为检测孟德尔疾病中剪接异常的有希望的测定方法，但迄今为止它在临床环境中的应用仍然局限于相关细胞类型已知且可进入活组织检查的少数病例。对任意前mRNA序列的剪接的预测可以使得精确预测cryptic splice variants成为可能，从而改善遗传疾病患者的诊断。虽然目前在core splicing motifs, exonic splice enhancers and silencer以及预测exon inclusion方面取得了一定进展，但是从原始序列构建剪切的预测模型还是很困难。</li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-使用深度学习从原始序列中精确的预测剪切-Accurate-prediction-of-splicing-from-a-primary-sequence-using-deep-learning"><a href="#3-1-使用深度学习从原始序列中精确的预测剪切-Accurate-prediction-of-splicing-from-a-primary-sequence-using-deep-learning" class="headerlink" title="3.1 使用深度学习从原始序列中精确的预测剪切 (Accurate prediction of splicing from a primary sequence using deep learning)"></a>3.1 使用深度学习从原始序列中精确的预测剪切 (Accurate prediction of splicing from a primary sequence using deep learning)</h4><p><img src="/images/20190320-Fig2.png" alt="Figure 1A"></p><ul><li><p>文章中提出了可变剪切预测模型<strong>SpliceAI</strong>, 如上图所示, 文章使用了大名鼎鼎的<a href="https://zhuanlan.zhihu.com/p/33613512" target="_blank" rel="noopener">残差网络</a>, 使用32空洞卷积层，使用上下游共10k（例如：以GT为中心）的序列（真的很长了。。。）训练，然后预测出该位点是<strong>Splice Acceptor</strong>, <strong>Splice Donor</strong>或者<strong>Neither</strong>。上图只是提供了简单框架，关于模型的详细结构，如下图所示：<br><img src="/images/20190320-Fig1.jpg" alt="Figure S1"></p></li><li><p>其中上图中的每一个RB就是一个残差模块（Residual Block），参数N，W，D分别表示：卷积核数目、卷积核大小（window size）以及空洞卷积空洞率。有关空洞卷积与标准卷积的差别，查看下图：</p></li><li>标准卷积<br><img src="/images/convolution.gif" alt="标准卷积"></li><li><p>空洞卷积 (dilated convolution)<br><img src="/images/dilated-convolution.gif" alt="空洞卷积"></p></li><li><p><strong>！！！接下来，作者就要验证他模型的可靠性了</strong>，首先呢，作者的评估指标是<strong>95% top-k accuracy</strong>，简单来说：k是随着测试集中对应类别样本的数目发生变化的，比如测试集中Splice Donor有100个，那就看预测为Splice Donor的前100个中有多少个是真正的Splice Donor，作者说，SliceAI的<strong>top-k accuracy</strong>是0.95。然后就举了一个例子，基因<em>CFTR</em>，这个基因超过100kb，通过SpliceAI也能将它的基因结构准确的预测出来，如下图<strong>Figure 1B</strong>所示：<br><img src="/images/20190320-Fig4.png" alt="Figure 1B"></p></li><li><p><strong>Figure 1C:</strong> 对于测试集中GENCODE注释出来的每一个外显子，作者都检验了网络的预测分值与<strong>支持外显子包含reads数目处以支持外显子跳跃的reads数目（也就是图中的Exon inclussion rate）</strong>之间的相关性；<br><img src="/images/20190320-Fig5.png" alt="Figure 1CEF"><br><img src="/images/20190320-Fig6.png" alt="Figure 1DG"></p></li><li><p><strong>FIgure 1D:</strong> 接下来就要看sequence motif了，模型这么高的精度到底是哪些序列因素决定的。然后就做了一个模拟，对于已知外显子附近的核苷酸进行一一替换，然后看预测分值的变化。然后作者发现破坏splice donor motif会导致网络失去预测上游的splice acceptor位点的能力；</p></li><li><strong>Figure 1E:</strong> 这部分就是讲述上下游序列长度对于模型预测效果的影响，共做了四个梯度，80nt、400nt、2k和10k，其实2k的时候效果就已经很好了；</li><li><strong>Figure 1F:</strong> 通过比较80nt和10k的模型，检验long-range and short range specificity determinants。左图黄色是外显子长度分布、右图粉色是内含子长度分布，紫色线是10k模型的预测分值、蓝色线是80nt的预测分值；</li><li><strong>Figure 1G:</strong> 由于剪接发生共转录，染色质状态和共转录剪接之间的相互作用也可能指导外显子定义，并且有可能被网络利用到染色质状态可从前体序列预测的程度。全基因组核小体定位实验表明核小体占据在外显子区域更高。作者就看自己的模型是不是用了核小体定位的序列模式（这个图理解的并不是很透彻。。）。然后就用一对最优的acceptor和donor（间隔150nt；平均外显子长度），看这对motif是不是会导致外显子保留，发现哪些倾向于被预测为外显子的区域拥有很高的核小体定位，这表明SpliceAI也学习到了核小体定位的一些信息；</li><li><strong>Figure 1H:</strong> 虽然多项研究报道了外显子与核小体占据之间的相关性，但核外体定位在外显子定义中的因果作用尚未确定。然后作者使用GTEx中149个体的RNA-Seq和全基因组测序数据，确定了一些专属于个人的新的外显子，这些私有外显子与已经存在的核小体定位显著相关。</li></ul><h4 id="3-2-用RNA-Seq验证预测的cryptic-splice-mutation-Verification-of-Predicted-Cryptic-Splice-Mutations-in-RNA-Seq-Data"><a href="#3-2-用RNA-Seq验证预测的cryptic-splice-mutation-Verification-of-Predicted-Cryptic-Splice-Mutations-in-RNA-Seq-Data" class="headerlink" title="3.2 用RNA-Seq验证预测的cryptic splice mutation (Verification of Predicted Cryptic Splice Mutations in RNA-Seq Data)"></a>3.2 用RNA-Seq验证预测的cryptic splice mutation (Verification of Predicted Cryptic Splice Mutations in RNA-Seq Data)</h4><ul><li>在上一部分不同层面证明了模型的性能之后，接下来这部分就用来探讨SpliceAI预测cryptic splice mutation的能力；<br><img src="/images/20190320-Fig7.jpg" alt="Figure 2"><br><img src="/images/20190320-Fig8.png" alt="Figure 2-legend"></li><li><strong>Figure 2A:</strong> 对于一个突变，预测其reference transcript和alternative transcript分值的差异；</li><li><strong>Figure 2B:</strong> 同样是使用GTEx群体，首先关注rare，private mutations（只在一个个体中出现），发现罕见、私有变异显著富集在私有新的splice junctions中，表明预测的大部分都是有功能的。这里还没有对SNP进行打分，只是对罕见私有变异做一个统计分析，表明预测出来的私有splice junction是有功能的；</li><li><strong>Figure 2C:</strong> 量化创造了心剪切位点的变异，以PYGB基因中的一个变异为例（creates a novel donor site）,计算novel juction相对使用率；</li><li><strong>Figure 2D:</strong> 预测分值被RNA-Seq数据验证的比例，可以看出分值变化越大，验证的比例越高；</li><li><strong>Figure 2E:</strong> 使用SNP的effect size来验证，关于effect size的计算在方法中有详述；</li><li><strong>Figure 2F:</strong> 不同阈值下，SpliceAI的sensitivity；</li><li><strong>Figure 2G:</strong> 以sensitivity为指标，与其他软件比较。</li></ul><h4 id="3-3-组织特异性选择性剪接经常来自于weak-cryptic-splice-variants-Tissue-specific-alternative-splicing-frequently-arises-from-weak-cryptic-splice-variants"><a href="#3-3-组织特异性选择性剪接经常来自于weak-cryptic-splice-variants-Tissue-specific-alternative-splicing-frequently-arises-from-weak-cryptic-splice-variants" class="headerlink" title="3.3 组织特异性选择性剪接经常来自于weak cryptic splice variants (Tissue-specific alternative splicing frequently arises from weak cryptic splice variants)"></a>3.3 组织特异性选择性剪接经常来自于weak cryptic splice variants (Tissue-specific alternative splicing frequently arises from weak cryptic splice variants)</h4><ul><li>作者在这部分主要分析了组织特异性的可变剪切与cryptic splice variants的关系；<br><img src="/images/20190320-Fig9.jpg" alt="Figure 3"><br><img src="/images/20190320-Fig10.png" alt="Figure 3-legend"></li><li>XXXX</li></ul><h4 id="3-4-预测的cryptic-splice-variants在人类群体中是非常有害的-Predicted-cryptic-splice-variants-are-strongly-deleterious-in-human-population"><a href="#3-4-预测的cryptic-splice-variants在人类群体中是非常有害的-Predicted-cryptic-splice-variants-are-strongly-deleterious-in-human-population" class="headerlink" title="3.4 预测的cryptic splice variants在人类群体中是非常有害的 (Predicted cryptic splice variants are strongly deleterious in human population)"></a>3.4 预测的cryptic splice variants在人类群体中是非常有害的 (Predicted cryptic splice variants are strongly deleterious in human population)</h4><p><img src="/images/20190320-Fig11.jpg" alt="Figure 4"></p><h4 id="3-5-De-Novo-Cryptic-Splice-Mutations是罕见遗传疾病的主要原因-De-Novo-Cryptic-Splice-Mutations-are-a-major-cause-of-rare-genetic-disorders"><a href="#3-5-De-Novo-Cryptic-Splice-Mutations是罕见遗传疾病的主要原因-De-Novo-Cryptic-Splice-Mutations-are-a-major-cause-of-rare-genetic-disorders" class="headerlink" title="3.5 De Novo Cryptic Splice Mutations是罕见遗传疾病的主要原因 (De Novo Cryptic Splice Mutations are a major cause of rare genetic disorders)"></a>3.5 De Novo Cryptic Splice Mutations是罕见遗传疾病的主要原因 (De Novo Cryptic Splice Mutations are a major cause of rare genetic disorders)</h4><p><img src="/images/20190320-Fig12.jpg" alt="Figure 5"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;这篇文章时2019年1月发表在Cell期刊用深度学习预测可变剪切。通讯作者来自于&lt;a href=&quot;https://www
+      
+    
+    </summary>
+    
+      <category term="Cell" scheme="https://jingjingzhai.github.io/categories/Cell/"/>
+    
+    
+      <category term="深度学习" scheme="https://jingjingzhai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Splicing prediction" scheme="https://jingjingzhai.github.io/tags/Splicing-prediction/"/>
+    
+  </entry>
   
   <entry>
     <title>DeepTACT: Predicting 3D chromatin contacts via bootstrapping deep learning</title>
@@ -45,7 +72,7 @@
     <link href="https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/"/>
     <id>https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/</id>
     <published>2019-03-13T07:04:02.000Z</published>
-    <updated>2019-03-18T13:08:39.578Z</updated>
+    <updated>2019-03-19T11:24:14.739Z</updated>
     
     <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>这篇文章是来自于以色列特拉维夫大学(Tel Aviv University) <a href="http://www.cs.tau.ac.il/~roded/index.html" target="_blank" rel="noopener">Roded Sharan课题组</a>在Nature reviews genetics发表的关于network propagation (网络扩散)在生物学领域另用的综述。<a id="more"></a></p><p><a href="https://www.nature.com/articles/nrg.2017.38" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>生物网络是发现疾病基因和遗传模块的有力资源。网络分析的基础是相同表型下的基因倾向于相互作用;该原理可用于组合和扩增来自个体基因的信号;</li><li>最近，基于随机游走，信息扩散和电阻，已经提出了许多用于使用网络进行遗传分析的生物信息学技术。这些方法已成功应用于鉴定疾病基因，遗传模块和药物靶标。事实上，所有这些方法都是统一数学机制的变体 - 网络传播 - 这表明它是一种在基因研究中具有广泛实用性的强大数据转换方法。</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>基因组技术催生(spawn; to cause something new, or many new things, to grow or start suddenly)了许多研究工作，以破译疾病的分子基础，产生越来越多的“组学”数据；确定这些数据的模式已成为遗传学以及医学的挑战；</li><li>分子网络包含节点、边。比如PPI等；</li><li>早期的网络分析方法依赖于“guilt by association”,即：基因或者蛋白共享表型如果她们连接到一起。然而，基于模块的方法不如直接的关联有效；</li><li>最近，一组考虑到网络全剧结构的方法出现秉承了遗传分析中最先进的方法，这些方法的核心都是网络扩散（<strong>Network propagation</strong>)，基于“genes under- lying similar phenotypes tend to interact with one another”这个假设来放大微弱的信号。为此，首先需要先验信息（与疾病相关的基因），把他们定位到网络中，然后想周围的邻居（neighbour/nodes）扩散，通过不断的迭代得到最终稳定的分布（与马尔可夫链相似），如下图所示，每一次扩散可以看作Markov中的一个时刻，最终算法就是找到这个随机过程的稳态分布；<br><img src="/images/20190318-Fig10.png" alt="Figure 1AB"><br><img src="/images/20190318-Fig11.png" alt="Figure 1C"></li><li>由于这个扩散过程非常有效，因此被广泛应用于各个领域。例如，图论理论家研究图上的随机游走;数据科学社区应用了Google PageRank搜索算法的各种变量;统计物理学家研究热扩散过程;电气工程师计算电路中的最小能量状态;机器学习领域考虑不同形式的图形内核。在生物学领域中，网络传播已有很多方面的应用包括：基因功能预测、模块挖掘、疾病描述以及药物靶标预测；</li><li>因此这篇综述讨论了不同的网络扩散方法以及他们的应用。</li></ul><h3 id="3-为什么使用network-propagation"><a href="#3-为什么使用network-propagation" class="headerlink" title="3. 为什么使用network propagation"></a>3. 为什么使用network propagation</h3><p>如下图所示, 以挖掘疾病基因为例，已知的致病基因标记为D，如果直接找临近节点会造成很多的假阳性（<strong>左图</strong>），如果找最短距离也会有很多的假阳性（<strong>中间图</strong>），但是如果使用<strong>network progagation</strong>则可以同时考虑最短和最长路径，可以降低假阳性。<br><img src="/images/20190318-Fig12.png" alt="Figure 2A"><br>接下来展示一个与一型裸淋巴细胞综合症相关的例子，下图展示的是PPI网络，<strong>红色</strong>是已知的疾病基因，通过network propagation方法可以将其他致病基因排的很高，但是用其他网络方法（只考虑最短或者直接路径），就会带来假阳性（<strong>黄色</strong>）。<br><img src="/images/20190318-Fig13.png" alt="Figure 2B"></p><h3 id="4-统一的描述（网络扩散中的数学）"><a href="#4-统一的描述（网络扩散中的数学）" class="headerlink" title="4. 统一的描述（网络扩散中的数学）"></a>4. 统一的描述（网络扩散中的数学）</h3><p><img src="/images/20190318-Fig14.png" alt="个人笔记"></p><p><img src="/images/20190318-Fig15.jpg" alt="个人笔记"></p><ul><li>不同算法的差别<br><img src="/images/20190318-Fig16.png" alt="table"></li></ul>]]></content>
     
@@ -179,51 +206,6 @@
   </entry>
   
   <entry>
-    <title>RECAP reveals the true statistical significance of ChIP-seq peak calls</title>
-    <link href="https://jingjingzhai.github.io/2019/03/06/RECAP-reveals-the-true-statistical-significance-of-ChIP-seq-peak-calls/"/>
-    <id>https://jingjingzhai.github.io/2019/03/06/RECAP-reveals-the-true-statistical-significance-of-ChIP-seq-peak-calls/</id>
-    <published>2019-03-06T08:24:59.000Z</published>
-    <updated>2019-03-06T08:39:33.423Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li><strong>动机:</strong> Peak calling是ChIP-Seq分析的一个关键步骤，但是很多软件在评估富集peak的显著性的时候都掉入了假设检验的陷阱里，那就是用了两次数据使得peak calling的出来的p值是没有意义的，因此也不能反应peak的可靠性。</li><li><strong>结果:</strong> 作者首先使用模拟的ChIP-Seq数据，证明了几个软件MACS、SICER和diffReps得出的p值都是biased，接下来就提出了自己的<strong>wrapper algorithm</strong>, 通过重采样估计单调变换（并没有看懂啥意思😛）。当应用于零假设数据时，在ChIP-seq和对照之间没有富集，RECAP重新校准的p值大致均匀分布。对于存在真正富集的数据，RECAP p值可以更好地估计候选峰的真实统计显着性和更好的错误发现率估计值，这与经验再现性更好地相关。</li><li><strong>软件地址:</strong> <a href="https://github.com/theodorejperkins/RECAP" target="_blank" rel="noopener">https://github.com/theodorejperkins/RECAP</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;h3 id=&quot;1-摘要&quot;&gt;&lt;a href=&quot;#1-摘要&quot; class=&quot;headerlink&quot; title=&quot;1. 摘要&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="Bioinformatics" scheme="https://jingjingzhai.github.io/categories/Bioinformatics/"/>
-    
-    
-      <category term="Peak Calling" scheme="https://jingjingzhai.github.io/tags/Peak-Calling/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Predicting splicing from primary sequence with deep learning (待更。。。)</title>
-    <link href="https://jingjingzhai.github.io/2019/03/05/Predicting-splicing-from-primary-sequence-with-deep-learning/"/>
-    <id>https://jingjingzhai.github.io/2019/03/05/Predicting-splicing-from-primary-sequence-with-deep-learning/</id>
-    <published>2019-03-05T03:16:30.000Z</published>
-    <updated>2019-03-08T07:09:00.265Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="Cell" scheme="https://jingjingzhai.github.io/categories/Cell/"/>
-    
-    
-      <category term="深度学习" scheme="https://jingjingzhai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="Splicing prediction" scheme="https://jingjingzhai.github.io/tags/Splicing-prediction/"/>
-    
-  </entry>
-  
-  <entry>
     <title>A resource of variant effect predictions of single nucleotide variants in model organisms</title>
     <link href="https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/"/>
     <id>https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/</id>
@@ -246,28 +228,6 @@
   </entry>
   
   <entry>
-    <title>Anchor trans-cell type prediction of transcription factor binding sites</title>
-    <link href="https://jingjingzhai.github.io/2019/02/22/Anchor%20trans-cell%20type%20prediction%20of%20transcription%20factor%20binding%20sites/"/>
-    <id>https://jingjingzhai.github.io/2019/02/22/Anchor trans-cell type prediction of transcription factor binding sites/</id>
-    <published>2019-02-22T07:12:28.000Z</published>
-    <updated>2019-03-07T07:28:12.532Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。<br><a id="more"></a><br><a href="https://genome.cshlp.org/content/early/2018/12/19/gr.237156.118" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><ul><li>ENCODE计划中虽然有TF-Cell type的ChIP-seq数据，但是这种具有完美对应关系的数据很少；</li><li>早期有很多基于序列的模型来预测TF Binding，但是单纯的基于序列不能分辨出cell-type-specific binding sites；</li><li>TF binding于DNase-seq关系紧密，ENCODE中有大量cell type-specific的DNase-seq数据</li></ul><h3 id="2-anchor方法概述"><a href="#2-anchor方法概述" class="headerlink" title="2. anchor方法概述"></a>2. anchor方法概述</h3><h4 id="2-1-数据集"><a href="#2-1-数据集" class="headerlink" title="2.1 数据集"></a>2.1 数据集</h4><ul><li>84个ChIP-seq实验涉及到32个TFs和13个细胞类型；</li><li>13个细胞类型的DNase-seq数据；</li><li>染色体1,8,21的数据用于最终模型的评估； ChrY在整个训练以及评估过程中都不考虑；</li><li>测试数据集共有13个TF-cell type pairs，涉及到12个转录因子，4个细胞类型（liver，iPSC，PC-3 and K562），其中liver占了9对，liver这个细胞类型在训练集中没出现过，所以这个预测起来是最难的。<h4 id="2-2-方法"><a href="#2-2-方法" class="headerlink" title="2.2 方法"></a>2.2 方法</h4></li><li>将染色体分成固定的两个部分：training sets(chr2，chr4，chr6，chr7，chr12，chr13，chr15，chr16，chr17，chr20，chrX)和validation sets (chr3, chr5, chr9, chr10, chr11, chr14, chr18, chr19, chr22).避免染色体过拟合</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Genome Research" scheme="https://jingjingzhai.github.io/categories/Genome-Research/"/>
-    
-    
-      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Accurate prediction of cell type-specific transcription factor binding</title>
     <link href="https://jingjingzhai.github.io/2019/02/22/Accurate%20prediction%20of%20cell%20type-specific%20transcription%20factor%20binding/"/>
     <id>https://jingjingzhai.github.io/2019/02/22/Accurate prediction of cell type-specific transcription factor binding/</id>
@@ -283,6 +243,28 @@
     </summary>
     
       <category term="Genome Biology" scheme="https://jingjingzhai.github.io/categories/Genome-Biology/"/>
+    
+    
+      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Anchor trans-cell type prediction of transcription factor binding sites</title>
+    <link href="https://jingjingzhai.github.io/2019/02/22/Anchor%20trans-cell%20type%20prediction%20of%20transcription%20factor%20binding%20sites/"/>
+    <id>https://jingjingzhai.github.io/2019/02/22/Anchor trans-cell type prediction of transcription factor binding sites/</id>
+    <published>2019-02-22T07:12:28.000Z</published>
+    <updated>2019-03-07T07:28:12.532Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。<br><a id="more"></a><br><a href="https://genome.cshlp.org/content/early/2018/12/19/gr.237156.118" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><ul><li>ENCODE计划中虽然有TF-Cell type的ChIP-seq数据，但是这种具有完美对应关系的数据很少；</li><li>早期有很多基于序列的模型来预测TF Binding，但是单纯的基于序列不能分辨出cell-type-specific binding sites；</li><li>TF binding于DNase-seq关系紧密，ENCODE中有大量cell type-specific的DNase-seq数据</li></ul><h3 id="2-anchor方法概述"><a href="#2-anchor方法概述" class="headerlink" title="2. anchor方法概述"></a>2. anchor方法概述</h3><h4 id="2-1-数据集"><a href="#2-1-数据集" class="headerlink" title="2.1 数据集"></a>2.1 数据集</h4><ul><li>84个ChIP-seq实验涉及到32个TFs和13个细胞类型；</li><li>13个细胞类型的DNase-seq数据；</li><li>染色体1,8,21的数据用于最终模型的评估； ChrY在整个训练以及评估过程中都不考虑；</li><li>测试数据集共有13个TF-cell type pairs，涉及到12个转录因子，4个细胞类型（liver，iPSC，PC-3 and K562），其中liver占了9对，liver这个细胞类型在训练集中没出现过，所以这个预测起来是最难的。<h4 id="2-2-方法"><a href="#2-2-方法" class="headerlink" title="2.2 方法"></a>2.2 方法</h4></li><li>将染色体分成固定的两个部分：training sets(chr2，chr4，chr6，chr7，chr12，chr13，chr15，chr16，chr17，chr20，chrX)和validation sets (chr3, chr5, chr9, chr10, chr11, chr14, chr18, chr19, chr22).避免染色体过拟合</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Genome Research" scheme="https://jingjingzhai.github.io/categories/Genome-Research/"/>
     
     
       <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
