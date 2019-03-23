@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jingjingzhai.github.io/2019/03/22/Combinatorial-Genetics-Reveals-a-Scaling-Law-for-the-Effects-of-Mutations-on-Splicing/</loc>
+    <lastmod>2019-03-23</lastmod>
+  </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/</loc>
-    <lastmod>2019-03-20</lastmod>
+    <lastmod>2019-03-22</lastmod>
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/</loc>
     <lastmod>2019-03-19</lastmod>
