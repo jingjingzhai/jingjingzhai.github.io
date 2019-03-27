@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jingjingzhai.github.io/2019/03/27/Deep-learning-augmented-RNA-seq-analysis-of-transcript-splicing/</loc>
+    
+    <lastmod>2019-03-27T09:59:27.425Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/</loc>
+    
+    <lastmod>2019-03-23T08:05:56.668Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jingjingzhai.github.io/2019/03/22/Combinatorial-Genetics-Reveals-a-Scaling-Law-for-the-Effects-of-Mutations-on-Splicing/</loc>
     
     <lastmod>2019-03-23T03:22:07.634Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/</loc>
     
     <lastmod>2019-03-17T03:18:41.514Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/</loc>
-    
-    <lastmod>2019-03-12T06:14:15.013Z</lastmod>
     
   </url>
   

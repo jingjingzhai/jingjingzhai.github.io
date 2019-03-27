@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jingjingzhai.github.io/2019/03/27/Deep-learning-augmented-RNA-seq-analysis-of-transcript-splicing/</loc>
+    <lastmod>2019-03-27</lastmod>
+  </url>  <url>
+    <loc>https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/</loc>
+    <lastmod>2019-03-23</lastmod>
+  </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/22/Combinatorial-Genetics-Reveals-a-Scaling-Law-for-the-Effects-of-Mutations-on-Splicing/</loc>
     <lastmod>2019-03-23</lastmod>
   </url>  <url>
@@ -15,9 +21,6 @@
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/04/A-resource-of-variant-effect-predictions-of-SNV-in-model-organism/</loc>
     <lastmod>2019-03-17</lastmod>
-  </url>  <url>
-    <loc>https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/</loc>
-    <lastmod>2019-03-12</lastmod>
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/09/A-transcription-factor-hierarchy-defines-an-environmental-stress-response-network/</loc>
     <lastmod>2019-03-09</lastmod>
