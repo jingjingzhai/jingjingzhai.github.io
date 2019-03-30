@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jingjingzhai.github.io/2019/03/29/Phylogenomic-synteny-network-analysis-of-MADS-Box-transcription-factor-genes-reveals-lineage-specific-transpositions-ancient-tandem-duplications-and-deep-positional-conservation/</loc>
+    <lastmod>2019-03-30</lastmod>
+  </url>  <url>
+    <loc>https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/</loc>
+    <lastmod>2019-03-29</lastmod>
+  </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/27/Deep-learning-augmented-RNA-seq-analysis-of-transcript-splicing/</loc>
     <lastmod>2019-03-27</lastmod>
   </url>  <url>
@@ -12,9 +18,6 @@
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/</loc>
     <lastmod>2019-03-22</lastmod>
-  </url>  <url>
-    <loc>https://jingjingzhai.github.io/2019/03/13/Network-propagation-a-universal-amplifier-of-genetic-associations/</loc>
-    <lastmod>2019-03-19</lastmod>
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/03/18/Predicting%203D%20chromatin%20contacts%20via%20bootstrapping%20deep%20learning/</loc>
     <lastmod>2019-03-18</lastmod>
