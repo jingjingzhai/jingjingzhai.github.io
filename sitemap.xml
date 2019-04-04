@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/</loc>
+    
+    <lastmod>2019-04-04T09:59:05.151Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jingjingzhai.github.io/2019/04/03/Dysregulation-of-expression-correlates-with-rare-allele-burden-and-fitness-loss-in-maize/</loc>
     
     <lastmod>2019-04-03T08:44:12.248Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://jingjingzhai.github.io/2019/03/12/Functional-protein-representations-from-biological-networks-enable-diverse-cross-species-inference/</loc>
     
     <lastmod>2019-03-23T08:05:56.668Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/</loc>
-    
-    <lastmod>2019-03-22T02:55:59.790Z</lastmod>
     
   </url>
   
