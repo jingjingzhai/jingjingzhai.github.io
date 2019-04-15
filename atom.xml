@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jingjingzhai.github.io/"/>
-  <updated>2019-04-03T08:44:12.248Z</updated>
+  <updated>2019-04-15T05:58:59.539Z</updated>
   <id>https://jingjingzhai.github.io/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Single-cell RNA-seq denoising using a deep count autoencoder</title>
+    <link href="https://jingjingzhai.github.io/2019/04/15/Single-cell-RNA-seq-denoising-using-a-deep-count-autoencoder/"/>
+    <id>https://jingjingzhai.github.io/2019/04/15/Single-cell-RNA-seq-denoising-using-a-deep-count-autoencoder/</id>
+    <published>2019-04-15T02:01:38.000Z</published>
+    <updated>2019-04-15T05:58:59.539Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>这篇文章是2019年发表在Nature Communications上的使用自编码器对单细胞RNA-Seq数据进行降噪的工作，通讯作者是<a href="https://www.helmholtz-muenchen.de/icb/institute/staff/staff/ma/2494/index.html" target="_blank" rel="noopener">Fabian J. Theis</a>, 来自于德国。这篇文章对自编码器做了改进，常规的自编码器只有一层输出，该文章提出的DCA方法有三层输出。</p><p><a href="https://www.nature.com/articles/s41467-018-07931-2" target="_blank" rel="noopener">文章链接</a><br><a href="https://github.com/theislab/dca" target="_blank" rel="noopener">文章代码1</a><br><a href="https://scanpy.readthedocs.io/en/latest/api/index.html#imputation" target="_blank" rel="noopener">文章代码2</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>scRNA-seq (Single-cell RNA sequencing)使得研究人员可以在单个细胞分辨率水平上研究基因表达；然而由amplification以及dropout带来的噪音可能阻碍下游的分析，因此需要对scRNA-seq（维度高、稀疏）开发专门的方法；</li><li>作者在这里提出DCA(deep count autoencoder network)对scRNA-seq进行降噪；DCA使用<strong>binomial noise model with or without zero-inflation</strong>考虑到<strong>count distribution</strong>, <strong>overdispersion</strong> and <strong>sparsity of the data</strong>；</li><li>使用模拟数据和真实数据作者证明了DCA降噪可以提高各种各样传统的scRNA-seq分析，DCA在数据填充和速度上也比目前已有的方法。</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>单细胞转录组的进步使得研究人员可以发现新的细胞类型，研究复杂细胞分化、发育过程追溯以及提高对人类疾病的理解；</li><li>单细胞测序技术虽然有了很大的提升，但是由各种各样的技术因素（例如：amplification bias, cell cycle effects, library size differences and especially low RNA capture rate）导致在scRNA-seq实验中存在着大量的噪音；这些技术由于测序深度较低所以非常稀疏；总之，技术因此带来了大量的噪音，这可能会破坏本身的生物学信号因此阻碍下游分析；</li><li>RNA捕获率低会导致检测不到某个基因的表达，也就是所谓的”false” zero count, 叫做”<strong>dropout event</strong>“。但是也有一些zero count是由于该基因在这个细胞中没有表达，因此在scRNA-seq中并不是所有的zero count都是缺失值。在统计学上，缺失值通常可以补充，要么通过随机替换要么是根据数据结构推断， 由于true zero count与false zero count之间的不平凡的差别，传统的方法对于scRNA-seq的imputation并不合适；</li><li>降噪的概念在图像领域被普遍用来从噪音中描绘信号；降噪通过从原始图像中抑制或者去除噪音来提升图片的质量；作者这里假设，从无噪数据得来的结果可以反应潜在的生物学过程以及细胞状态。然而，诸如成像或测序的测量技术会产生corrupted representation (<strong>Figure 1A</strong>)；<br><img src="/images/20190415-Fig1.png" alt="Figure 1"><br><img src="/images/20190415-Fig2.png" alt="Figure 1-legend"></li><li>目前已有一些针对于scRNA-seq的填充或者降噪方法。这些方法依赖于单细胞基因表达数据之间的相关性结构利用细胞之间或基因之间的相关性来推断矫正好的基因表达。例如：<a href="https://www.nature.com/articles/s41467-018-03405-7" target="_blank" rel="noopener">scImpute</a>使用混合模型定义可能的dropout values，然后将likely dropout values替换；而<a href="https://www.cell.com/cell/fulltext/S0092-8674(18" target="_blank" rel="noopener">MAGIC</a>30724-4)和<a href="https://www.nature.com/articles/s41592-018-0033-z" target="_blank" rel="noopener">SAVER</a>对每个基因和细胞输入输出降噪后的结果。但是这些方法都忽略了数据之间的count的非线性关系，而且，随着scRNA数据量的增大，这些方法不能分析上百万个细胞，这些方法分析不了如此大尺度的数据；</li><li>人工神经网络中的自编码器可以以一种非监督的模式学习到数据有效的压缩。自编码器的压缩部分强迫自编码器只能学习到重要的潜在特征，这种重构可以忽略随机噪音，目前自编码器在分子生物学领域已有很多应用；</li><li>作者为了能将自编码器应用于scRNA数据的填充而开发了<strong>deep count autoencoder</strong>, 方法的核心是将重构的错误定义为噪音模型的概率分布而不是输入数据本身 (<strong>FIgure 1B</strong>)，在训练的过程中, DCA通过最小化重构错误来学习基因特异性的分布参数；DCA有三个隐层可以捕获scRNA-seq数据中的复杂性以及非线性；</li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-Count-noise-model-is-neccessary-to-denoise-scRNA-seq-data"><a href="#3-1-Count-noise-model-is-neccessary-to-denoise-scRNA-seq-data" class="headerlink" title="3.1 Count noise model is neccessary to denoise scRNA-seq data"></a>3.1 Count noise model is neccessary to denoise scRNA-seq data</h4><ul><li>作者首先将DCA应用于模拟scRNA-seq(使用<a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1305-0" target="_blank" rel="noopener">Splatter</a>)数据探究DCA方法的属性；首先可以获得有dropout和没有dropout的数据,作者模拟了两组数据:<ul><li>两个细胞类型(2000个细胞)中的200个基因， 63%被设置为0；</li><li>六个细胞类型(2000个细胞)中的200个基因，35%被设置为0；</li></ul></li><li>为了指导用户选择合适的噪声模型，作者提出检查从同一cluster或细胞类型的细胞计算的基因平均值和经验dropout之间的关系，通过构建NB（negative binomial distribution without zero-inflation）<br>与ZINB（negative binomial distribution with zero-inflation）思然比检验来决定zero-inflation是否存在从而决定DCA选择的噪音模型的参数；</li><li><strong>Figure 2A-2B:</strong> 从模拟数据结果来看，dropout带来了大量的噪音阻碍了西北类型的发现，但是在用DCA降噪之后又可以恢复之前的细胞类型；为了检验count-based损失函数是不是必要的，作者比较了DCA与传统的自编码器（MSE作为损失函数，log转换），从最右边的图可以看出基于自编码器的MSE不能恢复细胞类型，表明<strong>specialized count loss function</strong>对于scRNA-seq数据的必要性<br><img src="/images/20190415-Fig3.png" alt="Figure 2"><br><img src="/images/20190415-Fig4.png" alt="Figure 2-legend"></li><li><strong>Figure 2C-2D:</strong> 上述结论在更复杂的六个细胞类型的数据上也得到了验证；</li><li>模拟数据的优点就是可以进行各种各样的评估，包括潜在的overimpudtation的评估；</li></ul><h4 id="3-2-DCA可以捕获真实数据中细胞群体结构-DCA-captures-cell-population-structure-in-real-data"><a href="#3-2-DCA可以捕获真实数据中细胞群体结构-DCA-captures-cell-population-structure-in-real-data" class="headerlink" title="3.2  DCA可以捕获真实数据中细胞群体结构 (DCA captures cell population structure in real data)"></a>3.2  DCA可以捕获真实数据中细胞群体结构 (DCA captures cell population structure in real data)</h4><ul><li>作者在这里使用了68579个外周血单核细胞和1000个highly variable genes （92%都是0）(<strong>Figure 3A</strong>)。<br><img src="/images/20190415-Fig5.png" alt="Figure 3"><br><img src="/images/20190415-Fig6.png" alt="Figure 3-legend"></li><li><strong>Figure 3B:</strong> 作者将自编码器的瓶颈层限制成2个神经元然后可视化其输出；</li><li><strong>Figure 3C-3F:</strong> 已知的细胞类型marker基因表现出了cluster-specific表达，表明DCA在真是数据集中捕获到了细胞群体的结构；</li></ul><h3 id="4-方法"><a href="#4-方法" class="headerlink" title="4. 方法"></a>4. 方法</h3><h4 id="4-1-自编码器"><a href="#4-1-自编码器" class="headerlink" title="4.1 自编码器"></a>4.1 自编码器</h4><ul><li>自编码器使用三层来预测输入数据，分别是：输入层、隐层(瓶颈层)以及输出层。输入输出都是相同大小维度，隐层是输入数据的低维展示，也就是降维，传统的自编码器通过最小化MSE损失函数来优化权重，自编码器中的压缩模型强制其只能学习到重要的潜在特征；PCA可以看作是以MSE为损失函数的线性自编码器；</li></ul><h4 id="4-2-噪音模型"><a href="#4-2-噪音模型" class="headerlink" title="4.2 噪音模型"></a>4.2 噪音模型</h4><ul><li>ZINB分布模拟高度稀疏和过度分散的count数据，其考虑了两个成分：<ul><li>点质量为零，表示数据中的过零值 (a point mass at zero which represents excess zero values in the data)；</li><li>表示计数分布的负二项式分量 (a negative binomial component representing the count distribution)</li></ul></li><li>成分1可捕获dropout事件；</li><li>成分2代表从潜在的分子中抽样reads的过程；</li><li>ZINB分布用下式表示：<script type="math/tex; mode=display">NB(x;\mu,\theta)=\frac{\Gamma(x+\theta)}{\Gamma(\theta)}(\frac{\theta}{\theta+\mu})^\theta(\frac{\mu}{\theta+\mu})^x</script><script type="math/tex; mode=display">ZINB(x;\pi,\mu,\theta)=\pi\sigma_0(x)+(1-\pi)NB(x;\mu,\theta)</script></li><li>\(\mu\)和\(\theta\)分别代表负二项分布的均值和离散度；</li></ul><h4 id="4-3-模型结构与训练"><a href="#4-3-模型结构与训练" class="headerlink" title="4.3 模型结构与训练"></a>4.3 模型结构与训练</h4><ul><li>接下来作者用自编码器框架以每个基因输入数据为条件估计ZINB分布的三个参数，因此与传统的自编码器不同的是，这个模型除了估计均值\(\mu\)外，还要估计dropout(\(\pi\))和dispersion参数(\(\theta\));</li><li>与传统的自编码器不同的是DCA有三个输出层，分别代表每个基因的三个参数，三个参数组成了gene-specific损失函数来比较这个基因原始输入与输出的差异；</li><li>对而分类模型来说，输出层可以解释为逻辑回归，因此DCA输出层可以看作是ZINB回归，predictor就是细胞的重新展示：<script type="math/tex; mode=display">E=ReLU(\bar{X}W_E)</script><script type="math/tex; mode=display">B=ReLU(EW_B)</script><script type="math/tex; mode=display">D=ReLU(BW_D)</script><script type="math/tex; mode=display">\bar{M}=exp(DW_{\mu})</script><script type="math/tex; mode=display">\prod=sigmoid(DW_{\pi})</script><script type="math/tex; mode=display">\Theta=exp(DW_\theta)</script></li><li>E, B, D分别代表encoder、bottleneck和decoder层，\(\bar{x}\)代表log转换的表达值的z-score。每个细胞的大小因子(size factor), 用每个细胞总的count数目除以每个细胞counts的median，\(\bar{X}\)通过一下公式来计算：<script type="math/tex; mode=display">\bar{X}=zscore(log(diag(s_i)^{-1}X+1))</script></li><li>X代表基因表达count矩阵，”zscore”代表z-score标准化；</li><li>输出激活以矩阵的形式展现</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;这篇文章是2019年发表在Nature Communications上的使用自编码器对单细胞RNA-Seq数据进行降噪的
+      
+    
+    </summary>
+    
+      <category term="Nature Communications" scheme="https://jingjingzhai.github.io/categories/Nature-Communications/"/>
+    
+    
+      <category term="深度学习" scheme="https://jingjingzhai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="scRNA-Seq" scheme="https://jingjingzhai.github.io/tags/scRNA-Seq/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Opportunities and challenges for transcriptome- wide association studies</title>
+    <link href="https://jingjingzhai.github.io/2019/04/12/Opportunities-and-challenges-for-transcriptome-wide-association-studies/"/>
+    <id>https://jingjingzhai.github.io/2019/04/12/Opportunities-and-challenges-for-transcriptome-wide-association-studies/</id>
+    <published>2019-04-12T07:57:11.000Z</published>
+    <updated>2019-04-12T11:31:57.155Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p><a href="https://www.nature.com/articles/s41588-019-0385-z" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li>TWAS整合GWAS以及基因表达来确定gene-trait之间的关联，在本文中，作者通过精神分裂症、低密度脂蛋白胆固醇和冠心病中文献支持的候选致病基因以及模拟实验探究了TWAS作为致病基因挖掘潜在方法的特性；</li><li>作者探究了TWAS找出来的causal genes以及multiple genes(有些可能不是causal)，由于表达水平和eQTL强度存在着明显的的跨细胞类型差异，TWAS特别容易从非性状相关的组织或细胞类型的基因表达数据中得到虚假的排序；</li><li>然而，TWAS还是要比simple baselines要更精确，作者在这里探讨了使用TWAS进行致病基因挖掘以及未来可提升的机遇；作者以eQTL数据为例说明了TWAS的优缺点；</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>GWAS已经关联了成千上万个复杂性状的位点，但是GWAS很难解释，例如LD总是使得导致这个显著关联的致病变异模糊不清(<strong>LD often obscures the causal variants driving the association, and the causal genes mediating variant effects on the trait are rarely ascertainable from GWAS data alone</strong>)。这就催生了很多招causal genes的方法；</li><li>这类方法之一就是TWAS，利用群体的表达数据挖掘基因-性状之间的关联 （<strong>Figure 1A</strong>）,表达值得预测和关联分析可以按照个体一个一个预测(PrediXcan)或者用summary-level GWAS数据同时预测(Fusion and S-PrediXcan);<br><img src="/images/20190412-Fig1.png" alt="Figure 1A"></li><li>TWAS已经在遗传学中获得了很大的兴趣，并且已经针对许多性状和组织进行了研究。尽管TWAS方法是将预测的表达与疾病风险相关联的统计检验，但其不保证causality，但其仍然广受关注的一个关键原因是TWAS可以优先考虑候选基因（介导致病性遗传变异的表型效应的基因）和 GWAS基因座下的组织。 不幸的是，人们普遍存在一种误解；作者在这里提供了解释TWAS结果的guidelines；</li><li>一个很有说服力的例子就是C4A基因，精神分裂症的一个致病基因，C4A位点的变异通过增加C4A在脑中的表达产生精神分裂症的疾病风险；TWAS基于GTEx中的表达数据将他们显著的关联了出来；</li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-TWAS的显著位点包含很多个基因-TWAS-significant-loci-contain-multiple-associated-genes"><a href="#3-1-TWAS的显著位点包含很多个基因-TWAS-significant-loci-contain-multiple-associated-genes" class="headerlink" title="3.1 TWAS的显著位点包含很多个基因(TWAS-significant loci contain multiple associated genes)"></a>3.1 TWAS的显著位点包含很多个基因(TWAS-significant loci contain multiple associated genes)</h4><ul><li>TWAS通常不能用于确定单个基因而是确定一个block(<strong>Figure 1B</strong>)，与此对应的是TWAS通常确定多个基因 (<strong>Figure 1C</strong>)；<br><img src="/images/20190412-Fig2.png" alt="Figure 1"><br><img src="/images/20190412-Fig3.png" alt="Figure 1-legend"></li><li>作者为了探索这种现象，就在两个性状（<strong>低密度脂蛋白胆固醇和冠心病</strong>）两个组织（522个liver和447while-blod expression samples）中分别用Fusion和S-PrediXcan分析了TWAS</li></ul><h4 id="3-2-个体之间表达的相关性可能会导致错误的信号-Correlated-expression-across-individuals-may-cause-false-hits"><a href="#3-2-个体之间表达的相关性可能会导致错误的信号-Correlated-expression-across-individuals-may-cause-false-hits" class="headerlink" title="3.2 个体之间表达的相关性可能会导致错误的信号(Correlated expression across individuals may cause false hits)"></a>3.2 个体之间表达的相关性可能会导致错误的信号(Correlated expression across individuals may cause false hits)</h4><ul><li>作者首先探索了co-regulation导致multi-hit loci的程度；Co-regulation通常是通过个体之间一对基因的表达相关系数来衡量；TWAS信号很强、表达很相关的基因是不是也倾向于是TWAS信号呢？<br><img src="/images/20190412-Fig4.png" alt="Figure 2"></li><li><strong>Figure 2A:</strong> 作者首先分析了LDL/Liver中的显著位点SORT1；</li><li><strong>Figure 2B:</strong> TWAS的信号强度与与表达的相关系数显著相关，因此个体之间的表达的强相关性会导致TWAS得到一些假阳性的结果；</li></ul><h4 id="3-3-Correlated-predicted-expression-may-also-cause-false-hits"><a href="#3-3-Correlated-predicted-expression-may-also-cause-false-hits" class="headerlink" title="3.3 Correlated predicted expression may also cause false hits"></a>3.3 Correlated predicted expression may also cause false hits</h4><ul><li>但是表达的相关性并不是故事的全部：TWAS检验预测出的表达而不是所有的表达 (Total expression), Total expression包括genetic, environmental and technical components and the genetic coponent includes contributions from common cis eQTLs, rare cis eQTLs and trans eQTLs, 预测的表达只能占总表达的一小部分：大规模的双胞胎实验表明common cis eQTLs只能解释10%的遗传方差；<br><img src="/images/20190412-Fig5.png" alt="Figure 3"><br><img src="/images/20190412-Fig6.png" alt="Figure 3-legend"></li><li><strong>Figure 3A:</strong> 相同位点之间predicted expression correlations要比total expression correlations稍微高一点，这种相关性可能会导致假阳性；</li><li><strong>Figure 3B:</strong> 作者在这里举了另外一个例子验证标题；</li><li></li></ul><h4 id="3-4-Shared-GWAS-variants-may-cause-false-hits"><a href="#3-4-Shared-GWAS-variants-may-cause-false-hits" class="headerlink" title="3.4 Shared GWAS variants may cause false hits"></a>3.4 Shared GWAS variants may cause false hits</h4><ul><li>一对基因可能共享变异即使他们的表达相关性很低，因为两个基因之间的其他变异会弱化相关性；</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.nature.com/articles/s41588-019-0385-z&quot; 
+      
+    
+    </summary>
+    
+      <category term="Nature Genetics" scheme="https://jingjingzhai.github.io/categories/Nature-Genetics/"/>
+    
+    
+      <category term="TWAS" scheme="https://jingjingzhai.github.io/tags/TWAS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Virtual ChIP-seq: predicting transcription factor binding by learning from the transcriptome</title>
+    <link href="https://jingjingzhai.github.io/2019/04/09/Virtual-ChIP-seq-predicting-transcription-factor-binding-by-learning-from-the-transcriptome/"/>
+    <id>https://jingjingzhai.github.io/2019/04/09/Virtual-ChIP-seq-predicting-transcription-factor-binding-by-learning-from-the-transcriptome/</id>
+    <published>2019-04-09T07:50:06.000Z</published>
+    <updated>2019-04-10T14:06:32.999Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p><a href="https://www.biorxiv.org/content/10.1101/168419v4" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li><strong>动机</strong>: 确定转录因子结合位点是解析非编码突变破坏转录因子调控功能并促进疾病研究的第一步；ChIP-Seq是确定结合位点的最普遍的方法，但是在病人样本中实施ChIP-Seq实验会受到生物学材料以及价格的限制；已经存在的调控元件预测的计算方法主要根据与已知的TF binding sequences之间的相似性预测；但是大部分结合位点跟已知的转录因子序列motifs不相似而且很多转录因子甚至不是序列特异的；</li><li><strong>结果</strong>: 作者开发了Virtual ChIP-seq，利用人工神经网络通过整合其他细胞类型的ChIP-Seq数据和染色质可及性数据来预测新的细胞类型里的ChIP-seq结果；同时，Virtual ChIP-seq还学习到了特定基因组区域中基因表达与转录因子结合位点之间的相关性；这个方法比单纯的基于序列效果要好。</li></ul><h3 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h3><ul><li>转录因子调控基因表达，每个转录因子通过结合到基因组上来协调基因的表达。细胞内的机器利用这些regulators调节关键的细胞过程并适应环境的刺激；一个TF的序列或者量发生改变会影响很多基因的表达；事实上，这些改变也是遗传性疾病 (hereditary disorders)、复杂疾病、自身免疫缺陷以及癌症的主要原因；</li><li>转录因子结合到DNA序列是基于氨基酸残基与核苷酸序列之间比较弱的非共价相互作用；DNA的原始序列、二级结构 (shape)、三级结构 (conformation) 对于TF binding都发挥着作用；很多TF与其他TF或者染色质结合蛋白形成复合体间接的结合到DNA上；很多体外的高通量实验（HT-SELEX or PBM）已经对于TF结合序列提供了全面的理解；但是，用体外数据训练的模型应用到体内实验的时候性能表现很差；</li><li>ChIP-Seq、ChIP-exo、ChIP-nexus可以将给定TF的结合序列找出来，但是这些实验至少需要1,000,000到100,000,000个细胞，而且还去决定这个TF是否有抗体；在临床实验中，这么大量的细胞并不一定可以获得；但是ATAC-seq只需要几百到几千个细胞，在临床样本中可以获得。然而染色质可及性不能决定到底哪个转录因子会结合到DNA上，目前也有一些方法利用这些信息与TF binding sequences偏好、基因组保守性以及其他基因组特征来预测TF结合；</li><li>使用motif discovery工具预测TF binding可以帮助我们理解不同疾病中TF扮演的角色；</li><li>不同软件的评估：<ul><li>auROC不合适，因为TF binding数据是高度不平衡的；</li><li>benchmark数据集不同；</li></ul></li><li>RNA-Seq数据集可以获得病人样本的转录组数据，作者假设转录组的数据可以更好的用于TF binding的预测，之前有研究使用调控元件预测基因表达；也有人用基因表达预测染色质可及性或者用基因表达的差异确定特定条件下统计显著的sequence motifs，但是他们没有根据转录组的数据预测体内的TF binding；</li><li>因此作者提出了Virtual ChIP-Seq，通过学习公共数据库中的ChIP-seq实验从而预测TF binding；Virtual ChIP-Seq还学习了还学习到了基因组保守性、基因表达等信息；Virtual ChIP-seq在新的细胞类型中MCC最小值为0.3。</li></ul><h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h3><h4 id="3-1-大多数TF结合位点缺乏motifs-Sequence-motifs-are-absent-in-most-TF-binding-sites"><a href="#3-1-大多数TF结合位点缺乏motifs-Sequence-motifs-are-absent-in-most-TF-binding-sites" class="headerlink" title="3.1 大多数TF结合位点缺乏motifs (Sequence motifs are absent in most TF binding sites)"></a>3.1 大多数TF结合位点缺乏motifs (Sequence motifs are absent in most TF binding sites)</h4><h5 id="3-1-1-大多数ChIP-seq-peaks缺乏转录因子相关的序列motif-Most-ChIP-seq-peaks-lack-the-TF’s-relevant-sequence-motif"><a href="#3-1-1-大多数ChIP-seq-peaks缺乏转录因子相关的序列motif-Most-ChIP-seq-peaks-lack-the-TF’s-relevant-sequence-motif" class="headerlink" title="3.1.1 大多数ChIP-seq peaks缺乏转录因子相关的序列motif (Most ChIP-seq peaks lack the TF’s relevant sequence motif)"></a>3.1.1 大多数ChIP-seq peaks缺乏转录因子相关的序列motif (Most ChIP-seq peaks lack the TF’s relevant sequence motif)</h5><ul><li>大部分用来预测TF结合的工具都是使用序列偏好性数据，即PWM矩阵；但是只基于序列不能决定转录因子的结合。我们可以从高通量实验中获得一些额外的属性例如：co-binding partners；作者在这里使用了54个细胞类型的201个chromatin factors，作者首先探究是不是大多数的结合位点都match同一个转录因子的sequence motif；</li><li><strong>Figure 1A:</strong> 在这201个蛋白中，76个在JASPAR数据库中没有motif， 还有一些motif-free蛋白是chromatin-binding proteins但不是真正的TFs<br><img src="/images/20190409-Fig1.jpg" alt="Figure 1"><br><img src="/images/20190409-Fig2.png" alt="Figure 1-legend"></li><li><strong>Figure 1B:</strong> 对于序列特异性的TFs，peaks match序列motif的比例从4.55%(SIX5)到94.2%(CTCF), 均值为49.4%；</li></ul><h5 id="3-1-2-很多序列motifs都不是中心富集的-Many-sequence-motifs-are-not-centrally-enriched"><a href="#3-1-2-很多序列motifs都不是中心富集的-Many-sequence-motifs-are-not-centrally-enriched" class="headerlink" title="3.1.2 很多序列motifs都不是中心富集的 (Many sequence motifs are not centrally enriched)"></a>3.1.2 很多序列motifs都不是中心富集的 (Many sequence motifs are not centrally enriched)</h5><ul><li><strong>Figure 1C:</strong> 作者比较了low motif occupancy TFs与high motif occupancy中central enrichment的程度；low motif occupancy had waker central enrichment；</li><li><strong>Figure 1D:</strong> 一个示例；</li></ul><h4 id="3-2-模型、性能以及基准数据"><a href="#3-2-模型、性能以及基准数据" class="headerlink" title="3.2 模型、性能以及基准数据"></a>3.2 模型、性能以及基准数据</h4><h5 id="3-2-1-数据集"><a href="#3-2-1-数据集" class="headerlink" title="3.2.1 数据集"></a>3.2.1 数据集</h5><ul><li><strong>标签:</strong> 对于基因组上200bp的片段如果与peak summit overlap则认为是正样本；</li></ul><h5 id="3-2-2-Learning-from-the-transcriptome"><a href="#3-2-2-Learning-from-the-transcriptome" class="headerlink" title="3.2.2 Learning from the transcriptome"></a>3.2.2 Learning from the transcriptome</h5><ul><li><strong>Figure 2A-2C:</strong> 对于每一个chromatin factor，作者创建了相关性矩阵，计算特定chromatin factor在特定基因组区域的binding与表达值的相关系数；<br><img src="/images/20190409-Fig3.jpg" alt="Figure 2"><br><img src="/images/20190409-Fig4.png" alt="Figure 2-legend"></li></ul><h5 id="3-2-3-Learning-from-other-predictive-features"><a href="#3-2-3-Learning-from-other-predictive-features" class="headerlink" title="3.2.3 Learning from other predictive features"></a>3.2.3 Learning from other predictive features</h5><h5 id="3-2-4-超参选取与训练-Selecting-hyperparameters-and-training"><a href="#3-2-4-超参选取与训练-Selecting-hyperparameters-and-training" class="headerlink" title="3.2.4 超参选取与训练 (Selecting hyperparameters and training)"></a>3.2.4 超参选取与训练 (Selecting hyperparameters and training)</h5><ul><li>文章共用了以下特征：<strong>表达值(Figure 3A)</strong>、<strong>公共数据库中的证据信息(Figure 3B)</strong>、<strong>chromatin accessibility (Figure 3C)</strong>、<strong>基因组保守性(Figure 3D)</strong>、<strong>序列motif分值(Figure 3E)</strong>;</li><li>chr5, chr10, chr15, and chr20用于训练；<br><img src="/images/20190409-Fig5.jpg" alt="Figure 3"></li></ul><h5 id="3-2-5-多层感知机"><a href="#3-2-5-多层感知机" class="headerlink" title="3.2.5 多层感知机"></a>3.2.5 多层感知机</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.biorxiv.org/content/10.1101/168419v4&quot; t
+      
+    
+    </summary>
+    
+      <category term="bioRxiv" scheme="https://jingjingzhai.github.io/categories/bioRxiv/"/>
+    
+    
+      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
+    
+  </entry>
   
   <entry>
     <title>Dysregulation of expression correlates with rare-allele burden and fitness  loss in maize</title>
@@ -378,28 +455,6 @@
   </entry>
   
   <entry>
-    <title>Anchor trans-cell type prediction of transcription factor binding sites</title>
-    <link href="https://jingjingzhai.github.io/2019/02/22/Anchor%20trans-cell%20type%20prediction%20of%20transcription%20factor%20binding%20sites/"/>
-    <id>https://jingjingzhai.github.io/2019/02/22/Anchor trans-cell type prediction of transcription factor binding sites/</id>
-    <published>2019-02-22T07:12:28.000Z</published>
-    <updated>2019-03-07T07:28:12.532Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。<br><a id="more"></a><br><a href="https://genome.cshlp.org/content/early/2018/12/19/gr.237156.118" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><ul><li>ENCODE计划中虽然有TF-Cell type的ChIP-seq数据，但是这种具有完美对应关系的数据很少；</li><li>早期有很多基于序列的模型来预测TF Binding，但是单纯的基于序列不能分辨出cell-type-specific binding sites；</li><li>TF binding于DNase-seq关系紧密，ENCODE中有大量cell type-specific的DNase-seq数据</li></ul><h3 id="2-anchor方法概述"><a href="#2-anchor方法概述" class="headerlink" title="2. anchor方法概述"></a>2. anchor方法概述</h3><h4 id="2-1-数据集"><a href="#2-1-数据集" class="headerlink" title="2.1 数据集"></a>2.1 数据集</h4><ul><li>84个ChIP-seq实验涉及到32个TFs和13个细胞类型；</li><li>13个细胞类型的DNase-seq数据；</li><li>染色体1,8,21的数据用于最终模型的评估； ChrY在整个训练以及评估过程中都不考虑；</li><li>测试数据集共有13个TF-cell type pairs，涉及到12个转录因子，4个细胞类型（liver，iPSC，PC-3 and K562），其中liver占了9对，liver这个细胞类型在训练集中没出现过，所以这个预测起来是最难的。<h4 id="2-2-方法"><a href="#2-2-方法" class="headerlink" title="2.2 方法"></a>2.2 方法</h4></li><li>将染色体分成固定的两个部分：training sets(chr2，chr4，chr6，chr7，chr12，chr13，chr15，chr16，chr17，chr20，chrX)和validation sets (chr3, chr5, chr9, chr10, chr11, chr14, chr18, chr19, chr22).避免染色体过拟合</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Genome Research" scheme="https://jingjingzhai.github.io/categories/Genome-Research/"/>
-    
-    
-      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Accurate prediction of cell type-specific transcription factor binding</title>
     <link href="https://jingjingzhai.github.io/2019/02/22/Accurate%20prediction%20of%20cell%20type-specific%20transcription%20factor%20binding/"/>
     <id>https://jingjingzhai.github.io/2019/02/22/Accurate prediction of cell type-specific transcription factor binding/</id>
@@ -422,26 +477,24 @@
   </entry>
   
   <entry>
-    <title>DeepBind</title>
-    <link href="https://jingjingzhai.github.io/2018/11/23/DeepBind%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://jingjingzhai.github.io/2018/11/23/DeepBind学习笔记/</id>
-    <published>2018-11-23T13:03:09.000Z</published>
-    <updated>2019-03-08T01:31:52.360Z</updated>
+    <title>Anchor trans-cell type prediction of transcription factor binding sites</title>
+    <link href="https://jingjingzhai.github.io/2019/02/22/Anchor%20trans-cell%20type%20prediction%20of%20transcription%20factor%20binding%20sites/"/>
+    <id>https://jingjingzhai.github.io/2019/02/22/Anchor trans-cell type prediction of transcription factor binding sites/</id>
+    <published>2019-02-22T07:12:28.000Z</published>
+    <updated>2019-03-07T07:28:12.532Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>了解DNA-binding以及RNA-binding特异性对于确定生物系统中的调控过程非常重要，因此文章使用当时火热的<strong>深度卷积神经网络</strong>构建模型，预测蛋白绑定DNA序列的特异性。同时作者发现使用体外数据训练模型，可以有效的预测体内的binding事件。<br><a id="more"></a><br><a href="">文章链接</a></p><h3 id="1-数据集"><a href="#1-数据集" class="headerlink" title="1. 数据集"></a>1. 数据集</h3><ul><li><strong>负样本的挑选</strong><br>对于负样本的挑选，文章中采用<strong>双核苷酸打乱</strong>的方式，用文章的原话来解释原因：“<strong>The advantage of a dinuc shuffled background is that it is more ‘difficult’ than standard nucleotide shuffling.</strong>” 同时，对于正负样本的比例，文章采取1：1的策略，但是对于样本数目（peak数目）非常少的数据，为了避免数据的过拟合，DeepBind采取选取更多负样本的策略，因此在最后训练的过程中每个模型至少有10,000负样本。如果正样本的数目少于10,000，就是用<strong>有放回抽样</strong>的方法，从正样本数据集中随机抽10,000次以达到正负样本的平衡。</li></ul><h3 id="2-方法细节"><a href="#2-方法细节" class="headerlink" title="2. 方法细节"></a>2. 方法细节</h3><ul><li><p><strong>特征编码</strong><br>与普通One-hot encoding不同的是，改文章添加了一个<strong>maximum motif detector <em>m</em></strong>, 如下图：<br><img src="/images/DeepBind_Fig1.jpg" alt="编码方式"><br>例如：对于序列AGCT，设置<em>m=3</em>,将编码成以下方式：<br><img src="/images/DeepBind_Fig2.jpg" alt="编码方式"> </p></li><li><p><strong>激活函数</strong><br>ReLu</p></li><li><strong>池化</strong><br>既有Max pooling又有Average pooling</li><li><strong>自动调参</strong><br>由于深度卷积神经网络模型之内，设计到的超参很多，因此超参的选择很重要，文章基于随机抽样进行超参选择（<a href="http://www.jmlr.org/papers/v13/bergstra12a.html" target="_blank" rel="noopener">James Bergstra and Yoshua Bengio, 2012</a>），即对于同一组数据，将训练几十甚至几百了模型。所以这篇文章真是训练了<strong>好多好多好多</strong>的模型。</li></ul><h3 id="3-训练数据集（ChIP-Seq）的筛选"><a href="#3-训练数据集（ChIP-Seq）的筛选" class="headerlink" title="3. 训练数据集（ChIP-Seq）的筛选"></a>3. 训练数据集（ChIP-Seq）的筛选</h3><ul><li><p><strong>Good Qualit数据定义:</strong> We only considered experiments with no experimental treatment and a “Good” quality annotation. 也就是说选取ChIP-Seq数据集中没有额外的实验处理； 每个正样本就是101-nt的DNA序列（以peak summit为中点）。然后根据每个peak对应的coverage对peeak进行排序。</p></li><li><p>文章中506组ChIP-Seq只对应137个转录因子，按照<strong>Supplementary Table 5</strong>提供的结果来看，文章是每组数据构建一个模型。</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p>该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。<br><a id="more"></a><br><a href="https://genome.cshlp.org/content/early/2018/12/19/gr.237156.118" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><ul><li>ENCODE计划中虽然有TF-Cell type的ChIP-seq数据，但是这种具有完美对应关系的数据很少；</li><li>早期有很多基于序列的模型来预测TF Binding，但是单纯的基于序列不能分辨出cell-type-specific binding sites；</li><li>TF binding于DNase-seq关系紧密，ENCODE中有大量cell type-specific的DNase-seq数据</li></ul><h3 id="2-anchor方法概述"><a href="#2-anchor方法概述" class="headerlink" title="2. anchor方法概述"></a>2. anchor方法概述</h3><h4 id="2-1-数据集"><a href="#2-1-数据集" class="headerlink" title="2.1 数据集"></a>2.1 数据集</h4><ul><li>84个ChIP-seq实验涉及到32个TFs和13个细胞类型；</li><li>13个细胞类型的DNase-seq数据；</li><li>染色体1,8,21的数据用于最终模型的评估； ChrY在整个训练以及评估过程中都不考虑；</li><li>测试数据集共有13个TF-cell type pairs，涉及到12个转录因子，4个细胞类型（liver，iPSC，PC-3 and K562），其中liver占了9对，liver这个细胞类型在训练集中没出现过，所以这个预测起来是最难的。<h4 id="2-2-方法"><a href="#2-2-方法" class="headerlink" title="2.2 方法"></a>2.2 方法</h4></li><li>将染色体分成固定的两个部分：training sets(chr2，chr4，chr6，chr7，chr12，chr13，chr15，chr16，chr17，chr20，chrX)和validation sets (chr3, chr5, chr9, chr10, chr11, chr14, chr18, chr19, chr22).避免染色体过拟合</li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;了解DNA-binding以及RNA-binding特异性对于确定生物系统中的调控过程非常重要，因此文章使用当时火热的&lt;strong&gt;深度卷积神经网络&lt;/strong&gt;构建模型，预测蛋白绑定DNA序列的特异性。同时作者发现使用体外数据训练模型，可以有效的预测体内的binding事件。&lt;br&gt;
+      &lt;h3 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0. 简介&quot;&gt;&lt;/a&gt;0. 简介&lt;/h3&gt;&lt;p&gt;该文章在2017年的转录因子绑定位点预测大赛中获得并列第一，与2019年发表在Genome Research。&lt;br&gt;
     
     </summary>
     
-      <category term="Nature Biotechnology" scheme="https://jingjingzhai.github.io/categories/Nature-Biotechnology/"/>
+      <category term="Genome Research" scheme="https://jingjingzhai.github.io/categories/Genome-Research/"/>
     
     
-      <category term="SNP Annotation" scheme="https://jingjingzhai.github.io/tags/SNP-Annotation/"/>
-    
-      <category term="深度学习" scheme="https://jingjingzhai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="TFBS Prediction" scheme="https://jingjingzhai.github.io/tags/TFBS-Prediction/"/>
     
   </entry>
   

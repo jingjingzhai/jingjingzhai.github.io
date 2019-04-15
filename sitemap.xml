@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jingjingzhai.github.io/2019/04/15/Single-cell-RNA-seq-denoising-using-a-deep-count-autoencoder/</loc>
+    
+    <lastmod>2019-04-15T05:58:59.539Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jingjingzhai.github.io/2019/04/12/Opportunities-and-challenges-for-transcriptome-wide-association-studies/</loc>
+    
+    <lastmod>2019-04-12T11:31:57.155Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jingjingzhai.github.io/2019/04/09/Virtual-ChIP-seq-predicting-transcription-factor-binding-by-learning-from-the-transcriptome/</loc>
+    
+    <lastmod>2019-04-10T14:06:32.999Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jingjingzhai.github.io/2019/03/20/Predicting-splicing-from-primary-sequence-with-deep-learning/</loc>
     
     <lastmod>2019-04-04T09:59:05.151Z</lastmod>
