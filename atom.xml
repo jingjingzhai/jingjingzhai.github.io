@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jingjingzhai.github.io/"/>
-  <updated>2019-07-16T08:42:50.431Z</updated>
+  <updated>2019-07-16T09:28:04.588Z</updated>
   <id>https://jingjingzhai.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://jingjingzhai.github.io/2019/07/16/Systematic-analysis-of-dark-and-camouflaged-genes-reveals-disease-relevant-genes-hiding-in-plain-sight/"/>
     <id>https://jingjingzhai.github.io/2019/07/16/Systematic-analysis-of-dark-and-camouflaged-genes-reveals-disease-relevant-genes-hiding-in-plain-sight/</id>
     <published>2019-07-16T08:38:38.000Z</published>
-    <updated>2019-07-16T08:42:50.431Z</updated>
+    <updated>2019-07-16T09:28:04.588Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1707-2" target="_blank" rel="noopener">文章链接</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h3><p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1707-2" target="_blank" rel="noopener">文章链接</a></p><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><ul><li><strong>背景:</strong> <ul><li>dark gene regions: 比对上的reads很少；</li><li>camouflaged regions: 模棱两可的比对，即多比对；</li></ul></li><li><strong>结果:</strong><ul><li>基于全基因组illumina测序数据，确定了36,794个dark regions in 6054个基因中。在这些中，8.7%是完全dark，35.2%有超过5%的dark；</li><li>Linked-read or long-read测序技术可以降低dark regions；</li><li>作者提出了一个算法解析camouflaged regions并将其应用于老年痴呆疾病，发现在CR1基因（老年痴呆的显著基因）有一个罕见的10个核苷酸的移码缺失。</li></ul></li><li><strong>结论：</strong><ul><li>虽然本文不能评估CR1移码突变与老年痴呆症的关系（样本量不够），但是本文的研究表明在基因组中有很多被忽视的区域可以通过long-read技术被解析。</li></ul></li></ul>]]></content>
     
     <summary type="html">
     
