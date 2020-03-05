@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jingjingzhai.github.io/2019/07/17/A-Deep-Neural-Network-for-Predictingand-Engineering-Alternative-Polyadenylation/</loc>
+    <lastmod>2020-03-05</lastmod>
+  </url>  <url>
+    <loc>https://jingjingzhai.github.io/2020/02/13/Building-Transcription-Factor-Binding-Site-Models-to-Understand-Gene-Regulation-in-Plants/</loc>
+    <lastmod>2020-02-16</lastmod>
+  </url>  <url>
+    <loc>https://jingjingzhai.github.io/2019/09/16/Deep-learning-sequence-based-ab-initio-prediction-of-variant-effects-on-expression-and-disease-risk/</loc>
+    <lastmod>2019-09-16</lastmod>
+  </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/08/11/Integrating-Coexpression-Networks-with-GWAS-to-Prioritize-Causal-Genes-in-Maize/</loc>
+    <lastmod>2019-08-17</lastmod>
+  </url>  <url>
+    <loc>https://jingjingzhai.github.io/2019/08/17/Identification-of-the-expressome-by-machine-learning-on-omics-data/</loc>
+    <lastmod>2019-08-17</lastmod>
+  </url>  <url>
+    <loc>https://jingjingzhai.github.io/2019/08/12/Partitioning-heritability-by-functional-annotation-using-genome-wide-association-summary-statistics/</loc>
     <lastmod>2019-08-12</lastmod>
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/04/24/Functional-architecture-of-low-frequency-variants-highlights-strength-of-negative-selection-across-coding-and-non-coding-annotations/</loc>
@@ -10,16 +25,10 @@
     <loc>https://jingjingzhai.github.io/2019/08/02/Systematic-analysis-of-dark-and-camouflaged-genes-reveals-disease-relevant-genes-hiding-in-plain-sight/</loc>
     <lastmod>2019-08-12</lastmod>
   </url>  <url>
-    <loc>https://jingjingzhai.github.io/2019/07/17/A-Deep-Neural-Network-for-Predictingand-Engineering-Alternative-Polyadenylation/</loc>
-    <lastmod>2019-07-31</lastmod>
-  </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/05/23/Decomposing-Cell-Identity-for-Transfer-Learning-across-Cellular-Measurements-Platforms-Tissues-and-Species/</loc>
     <lastmod>2019-05-23</lastmod>
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/04/26/Common-SNPs-explain-a-large-proportion-of-the-heritability-for-human-height/</loc>
-    <lastmod>2019-04-26</lastmod>
-  </url>  <url>
-    <loc>https://jingjingzhai.github.io/2019/04/26/Partitioning-heritability-by-functional-annotation-using-genome-wide-association-summary-statistics/</loc>
     <lastmod>2019-04-26</lastmod>
   </url>  <url>
     <loc>https://jingjingzhai.github.io/2019/04/18/De-novo-domestication-an-alternative-route-toward-new-crops-for-the-future/</loc>
